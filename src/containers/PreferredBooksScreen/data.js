@@ -1,0 +1,98 @@
+export const firstData=[
+  {
+    id: 1,
+    name: 'Big Magic',
+    rating: 3,
+    subTitle: "This is subtitle of this book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/bookmagic.png')
+  },
+  {
+    id: 2,
+    name: 'Big Magic subtitle of this book',
+    rating: 2,
+    subTitle: "This is ",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/book1.png')
+  },
+  {
+    id: 3,
+    name: 'Sath Vikas',
+    rating: 3,
+    subTitle: "This is subtitle of this book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/book2.png')
+  },
+  {
+    id: 4,
+    name: 'This is subtitle of this book',
+    rating: 3,
+    subTitle: "This is subtitle of this book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/bookmagic.png')
+  },
+  {
+    id: 5,
+    name: 'Sath subtitle',
+    rating: 2,
+    subTitle: "This is subtitle of this book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/book1.png')
+  },
+  {
+    id: 6,
+    name: 'Big Magic subtitle',
+    rating: 3,
+    subTitle: "This is subtitle of this book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/book2.png')
+  },
+  {
+    id: 7,
+    name: 'Sath subtitle  book',
+    rating: 2,
+    subTitle: "This is subtitle  book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/book1.png')
+  },
+  {
+    id: 8,
+    name: 'Big Magic anand',
+    rating: 3,
+    subTitle: "This  of this book",
+    authorName: "Mr. Vikas anand Sath",
+    review: 100,
+    language: 'English',
+    category: 'Mystry',
+    format: 'e-book',
+    imageUrl: require('../../assets/placeHolder/book2.png')
+  },
+]

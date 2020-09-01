@@ -1,0 +1,58 @@
+export const bookByteReaders = [
+    {
+        id: 1,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Mike johnson',
+    },
+    {
+        id: 2,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Brad Miller',
+    },
+    {
+        id: 3,
+        imageUrl:null,
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Brad Miller',
+    },
+    {
+        id: 4,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Suzan Moon',
+    },
+    {
+        id: 5,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Mike Johnson',
+    },
+    {
+        id: 6,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Abhi',
+    },
+    {
+        id: 7,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Abhi',
+    },
+    {
+        id: 8,
+        imageUrl: require('../../assets/placeHolder/user.png'),
+        email:'johnSmith@SpeechGrammarList.com',
+        no : '+11 1235 564',
+        name: 'Abhi',
+    },
+]
