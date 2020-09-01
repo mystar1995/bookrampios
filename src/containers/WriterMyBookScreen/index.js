@@ -24,6 +24,7 @@ import styles from './styles';
 import colors from '../../utils/colors';
 import {connect} from 'react-redux';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 class WriterMyBookScreen extends  Component{
   constructor(props){
@@ -63,6 +64,7 @@ class WriterMyBookScreen extends  Component{
     let {
       isActive
     } = this.state
+  let {auth} = this.props;
     return (
       // === side bar ===
       <ScalingDrawer 
@@ -98,7 +100,7 @@ class WriterMyBookScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  My Book
+                  {translator.getlang('My Books',auth.user.language)}
                 </Text>
               </View>
              <View/>
@@ -133,7 +135,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Published Book
+                            {translator.getlang('Published Book',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -170,7 +172,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Book in draft
+                            {translator.getlang('Book in draft',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -207,7 +209,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Books in review
+                            {translator.getlang('Books in review',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -244,7 +246,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Books rating and review
+                            {translator.getlang('Books rating and review',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -281,7 +283,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Write a new book
+                            {translator.getlang('Write a new book',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -318,7 +320,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Upload a book
+                            {translator.getlang('Upload a book',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -355,7 +357,7 @@ class WriterMyBookScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Fan club
+                            {translator.getlang('Fan club',auth.user.language)}
                           </Text>
                         </View>
                       </View>

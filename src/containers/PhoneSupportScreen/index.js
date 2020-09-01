@@ -23,6 +23,7 @@ import {descData } from './data';
 import styles from './styles';
 import colors from '../../utils/colors';
 import {connect} from 'react-redux';
+import * as translator from '../../utils/translate';
 
 class PhoneSupportScreen extends Component {
   constructor(props) {
@@ -106,7 +107,7 @@ class PhoneSupportScreen extends Component {
           {/* === text === */}
           <View>
             <Text style={styles.helpText}>
-              Need some help?
+              {translator.getlang('Need some help',auth.user.language)}?
             </Text>
           </View>
           {/* === text === */}
@@ -126,7 +127,7 @@ class PhoneSupportScreen extends Component {
                 onPress={()=>this.dialCall()}
                 >
                   <Text style={styles.callText}>
-                    Call:  {config.content_service_number}
+                    {translator.getlang('Call',auth.user.language)}:  {config.content_service_number}
                   </Text>
               </TouchableOpacity>
              )
@@ -139,7 +140,8 @@ class PhoneSupportScreen extends Component {
 }
 
 const mapstatetoprops = (state) => ({
-  config:state.config
+  config:state.config,
+  auth:state.auth
 })
 
 //===  make components available outside ===

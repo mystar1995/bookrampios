@@ -84,32 +84,32 @@ export async function forget_password_reset(data)
 
 export async function forget_password_reset_after(data,token)
 {
-    return await axios.post(config.API_URL + "/user/change_pwd/",data,{headers:{"Authorization":"token " + token}});
+    return await axios.post(config.API_URL + "/user/change_pwd/",data,{headers:{"Authorization": token}});
 }   
 
 export async function update_user_language(lang,token)
 {
-    return await axios.patch(config.API_URL + "/user/update_preferred_language/",{language:lang},{headers:{"Authorization":"token " + token}});
+    return await axios.patch(config.API_URL + "/user/update_preferred_language/",{language:lang},{headers:{"Authorization":token}});
 }
 
 export async function get_friends(token)
 {
-    return await axios.get(config.API_URL + "/author/friends/",{headers:{'Authorization':'token ' + token}});
+    return await axios.get(config.API_URL + "/author/friends/",{headers:{'Authorization': token}});
 }
 
 export async function add_friends(email)
 {
-    return await axios.post(config.API_URL + "/author/friends/",{email:email},{headers:{'Authorization':'token ' + token}})
+    return await axios.post(config.API_URL + "/author/friends/",{email:email},{headers:{'Authorization': token}})
 }
 
 export async function get_app_friends(token)
 {
-    return await axios.get(config.API_URL + "/author/app_friends/",{headers:{'Authorization':'token ' + token}});
+    return await axios.get(config.API_URL + "/author/app_friends/",{headers:{'Authorization':token}});
 }
 
 export async function get_other_friends(token)
 {
-    return await axios.get(config.API_URL + "/author/other_friends/",{headers:{'Authorization':'token ' + token}});
+    return await axios.get(config.API_URL + "/author/other_friends/",{headers:{'Authorization': token}});
 }
 
 export async function verify(phonenumber,verify)
@@ -165,4 +165,9 @@ export async function earnrewards(contentid,page,token)
 export async function get_fanlist(token)
 {
     return await axios.get(config.API_URL + "/reader/get_fanlist",{headers:{'Authorization':token}});
+}
+
+export async function switchuser(token)
+{
+    return await axios.get(config.API_URL + "/user/switchuser",{headers:{'Authorization':token}});
 }

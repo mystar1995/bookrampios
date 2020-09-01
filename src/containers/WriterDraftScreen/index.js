@@ -24,6 +24,8 @@ import Draft from '../../components/Draft';
 //=== style ==
 import styles from './styles';
 import colors from '../../utils/colors';
+import * as translator from '../../utils/translate';
+import {connect} from 'react-redux';
 import Modal from 'react-native-modal';
 
 class WriterDraftScreen extends  Component{
@@ -68,7 +70,7 @@ class WriterDraftScreen extends  Component{
             </TouchableOpacity>
             <View>
               <Text style={styles.headerText}>
-                Dashboard
+                {translator.getlang('Dashboard',auth.user.language)}
               </Text>
             </View>
             
@@ -102,7 +104,7 @@ class WriterDraftScreen extends  Component{
                     ...styles.tabText,
                     color: isActiveTab===1 ? colors.submitColor33 : colors.grayColor
                   }}>
-                    My Submission
+                    {translator.getlang('My Submission',auth.user.language)}
                 </Text>
             </TouchableOpacity>
             {/* === draft === */}
@@ -121,7 +123,7 @@ class WriterDraftScreen extends  Component{
                     ...styles.tabText,
                     color: isActiveTab===2 ? colors.submitColor33 : colors.grayColor
                   }}>
-                    My Draft
+                    {translator.getlang('My Draft',auth.user.language)}
                 </Text>
             </TouchableOpacity>
           </View>
@@ -178,5 +180,8 @@ class WriterDraftScreen extends  Component{
   }
 }
 
+const mapstatetoprops = (state) => ({
+  auth:state.auth
+})
 //===  make components available outside ===
-export default WriterDraftScreen;
+export default connect(mapstatetoprops)(WriterDraftScreen);

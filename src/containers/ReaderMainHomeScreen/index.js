@@ -40,9 +40,9 @@ class ReaderMainHomeScreen extends Component {
 
   componentWillReceiveProps(props)
   {
-    let index = props.route.params?props.route.params.index:0;
+    let index = props.route.params?props.route.params.index:-1;
 
-    if(index)
+    if(index > -1)
     {
       this.setState({
         index:index,

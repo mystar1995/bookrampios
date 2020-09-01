@@ -117,7 +117,7 @@ class DocumentWriting extends Component {
             data.id = read.id;
         }
 
-        if(read.cover_image.type)
+        if(read.cover_image && read.cover_image.type)
         {
             data.cover_image = read.cover_image;
         }
@@ -263,8 +263,8 @@ class DocumentWriting extends Component {
                         {/* === header Book bytes view === */}
                         <View style={styles.headingView}>
                             <View style={styles.boxStyle2}>
-                                <Image
-                                    source={{uri:read.cover_image.uri}}
+                               <Image
+                                    source={read.cover_image?{uri:read.cover_image.uri}:require('../../assets/placeHolder/default.png')}
                                     style={styles.imageStyle2}
                                 />
                             </View>

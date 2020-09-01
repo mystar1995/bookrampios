@@ -230,7 +230,7 @@ class NewStoryScreen extends  Component{
     let categoryData = this.getcategorydata();
     
     let languageData = [{
-      label: 'Hindi',value:'ar'
+      label: 'Arabic',value:'ar'
     }, {
       label: 'English',value:'en'
     }];
@@ -284,7 +284,7 @@ class NewStoryScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  New Story
+                  {translator.getlang('New Story',auth.user.language)}
                 </Text>
               </View>
               
@@ -320,7 +320,7 @@ class NewStoryScreen extends  Component{
             >
               <Text 
                 style={styles.chgTxt}>
-                {imageData != ''?'Change cover':'Add Cover Image'}
+                {imageData != ''?translator.getlang('Change cover',auth.user.language):translator.getlang('Add Cover Image',auth.user.language)}
               </Text>
             </TouchableOpacity>
             {/* ===  */}
@@ -335,7 +335,7 @@ class NewStoryScreen extends  Component{
                   <Dropdown
                     labelHeight={0}
                     data={languageData}
-                    placeholder={'Language'}
+                    placeholder={translator.getlang('Language',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     value={language}
                     renderAccessory={this.renderArrow}
@@ -368,7 +368,7 @@ class NewStoryScreen extends  Component{
                   <Dropdown
                     labelHeight={0}
                     data={categoryData}
-                    placeholder={'Select Category'}
+                    placeholder={translator.getlang('Select Category',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     value={category}
                     renderAccessory={this.renderArrow}
@@ -401,7 +401,7 @@ class NewStoryScreen extends  Component{
                   <View style={styles.inputField}>
                     <TextInput
                       underlineColorAndroid={'transparent'}
-                      placeholder={'Title'}
+                      placeholder={translator.getlang('Title',auth.user.language)}
                       placeholderTextColor={colors.grayColor}
                       autoCorrect={false}
                       autoCapitalize={'none'}
@@ -429,7 +429,7 @@ class NewStoryScreen extends  Component{
                   <View style={styles.inputField}>
                     <TextInput
                       underlineColorAndroid={'transparent'}
-                      placeholder={'Short Description'}
+                      placeholder={translator.getlang('Short Description',auth.user.language)}
                       placeholderTextColor={colors.grayColor}
                       autoCorrect={false}
                       autoCapitalize={'none'}
@@ -457,7 +457,7 @@ class NewStoryScreen extends  Component{
                   <Dropdown
                     labelHeight={0}
                     data={ageGroupData}
-                    placeholder={'Age Group'}
+                    placeholder={translator.getlang('Age Group',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     value={ageGroup}
                     renderAccessory={this.renderArrow}
@@ -490,7 +490,7 @@ class NewStoryScreen extends  Component{
                   <View style={{...styles.inputField,marginTop: 10}}>
                     <TextInput
                       underlineColorAndroid={'transparent'}
-                      placeholder={'Story'}
+                      placeholder={translator.getlang('Story',auth.user.language)}
                       placeholderTextColor={colors.grayColor}
                       autoCorrect={false}
                       multiline={true}
@@ -530,14 +530,14 @@ class NewStoryScreen extends  Component{
                       </View>
                       <View>
                         <Text style={styles.chooseTxt}>
-                          {this.state.uploadfile?this.state.uploadfile.name:'Choosen file'} 
+                          {this.state.uploadfile?this.state.uploadfile.name:translator.getlang('Choosen file',auth.user.language)} 
                         </Text>
                       </View>
                   </TouchableOpacity>
                 </LinearGradient>
                 <View style={{marginLeft: 10}}>
                   <Text style={styles.desChooseTxt}>
-                    {this.state.uploadfile?this.state.uploadfile.name:'No file choosen'}
+                    {this.state.uploadfile?this.state.uploadfile.name:translator.getlang('No file choosen',auth.user.language)}
                   </Text>
                 </View>
               </View>
@@ -548,7 +548,7 @@ class NewStoryScreen extends  Component{
                 onPress={this.startwriting}
                 >
                   <Text style={styles.submitText}>
-                    SUBMIT
+                    {translator.getlang('SUBMIT',auth.user.language)}
                   </Text>
               </TouchableOpacity>
 
@@ -575,7 +575,7 @@ class NewStoryScreen extends  Component{
                 activeOpacity={0.8} 
                 style={styles.modalButton}>
                 <Text style={styles.modalText}>
-                  Write a new book
+                  {translator.getlang('Write a new book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
               {/* //==== Upload a book === */}
@@ -589,7 +589,7 @@ class NewStoryScreen extends  Component{
                 activeOpacity={0.8} 
                 style={{...styles.modalButton,borderBottomWidth: 0,}}>
                 <Text style={styles.modalText}>
-                  Upload a book
+                  {translator.getlang('Upload a book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
             </View>

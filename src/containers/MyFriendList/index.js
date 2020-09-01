@@ -25,6 +25,7 @@ const ScreenWidth = Math.round(Dimensions.get('window').width);
 import ScalingDrawer from 'react-native-scaling-drawer';
 import SideBar from '../../components/SideBar';
 import WriterSideBar from '../../components/WriterSideBar';
+import * as translator from '../../utils/translate';
 
 class MyFriendList extends Component {
     constructor(props) {
@@ -87,7 +88,7 @@ class MyFriendList extends Component {
                             </TouchableOpacity>
                             <View>
                                 <Text style={styles.headerText}>
-                                    My Friend list
+                                    {translator.getlang('My Friend list',auth.user.language)}
                                 </Text>
                             </View>
 
@@ -108,15 +109,15 @@ class MyFriendList extends Component {
                         {/* === header Book bytes view === */}
                         <View style={[styles.headingView , {paddingBottom : 16}]}>
                             <Text style={styles.nameText}>
-                                Book bytes Readers
-                        </Text>
+                                {translator.getlang('Book bytes Readers',auth.user.language)}
+                            </Text>
                             <TouchableHighlight
                                 activeOpacity={0.8}
                             >
                                 <View style={styles.textContainer}>
                                     <Text style={styles.headingText2}>
-                                        Add New
-                                </Text>
+                                        {translator.getlang('Add New',auth.user.language)}
+                                    </Text>
                                 </View>
                             </TouchableHighlight>
                         </View>
@@ -176,8 +177,8 @@ class MyFriendList extends Component {
                                 <View style = {{flexDirection: 'row'}}>
                                     <View style={styles.textContainer}>
                                         <Text style={styles.headingText2}>
-                                            See All
-                                    </Text>
+                                            {translator.getlang('See All',auth.user.language)}
+                                        </Text>
                                     </View>
                                     <Image
                                         style={{ height: 10, width: 10 ,marginLeft : 4, marginTop : 3}}
@@ -190,8 +191,8 @@ class MyFriendList extends Component {
                         {/* === header others view === */}
                         <View style={styles.headingView}>
                             <Text style={styles.nameText}>
-                                Others
-                        </Text>
+                                {translator.getlang('Others',auth.user.language)}
+                            </Text>
                         </View>
 
                         {/* === list of Others === */}
@@ -247,7 +248,7 @@ class MyFriendList extends Component {
                             activeOpacity={0.8} 
                             style={styles.modalButton}>
                             <Text style={styles.modalText}>
-                            Write a new book
+                                {translator.getlang('Write a new book',auth.user.language)}
                             </Text>
                         </TouchableOpacity>
                         {/* //==== Upload a book === */}
@@ -261,7 +262,7 @@ class MyFriendList extends Component {
                             activeOpacity={0.8} 
                             style={{...styles.modalButton,borderBottomWidth: 0,}}>
                             <Text style={styles.modalText}>
-                            Upload a book
+                                {translator.getlang('Upload a book',auth.user.language)}
                             </Text>
                         </TouchableOpacity>
                         </View>

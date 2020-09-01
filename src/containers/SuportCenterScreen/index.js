@@ -26,6 +26,7 @@ import SideBar from '../../components/SideBar';
 import WriterSideBar from '../../components/WriterSideBar';
 
 import {connect} from 'react-redux';
+import * as translator from '../../utils/translate';
 
 //=== screen ===
 class SuportCenterScreen extends Component {
@@ -81,7 +82,7 @@ class SuportCenterScreen extends Component {
                 </TouchableOpacity>
                 <View>
                   <Text style={styles.headingText}>
-                    Suport Center
+                    {translator.getlang('Support Center',auth.user.language)}
                   </Text>
                 </View>
                 <View/>
@@ -91,13 +92,13 @@ class SuportCenterScreen extends Component {
             <View style={styles.mainContainer}>
               {/* //=== 1 === */}
               <TouchableOpacity
-                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:"Learn how to use the app?",index:1})}}
+                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:translator.getlang("Learn how to use the app",auth.user.language) + '?',index:1})}}
                 activeOpacity={0.8}
                 style={styles.rowContainer}
                 >
                   <View>
                     <Text style={styles.textDesign}>
-                      Learn how to use the app?
+                      {translator.getlang("Learn how to use the app",auth.user.language)} ?
                     </Text>
                   </View>
                   <View style={styles.rightIcon}>
@@ -110,13 +111,13 @@ class SuportCenterScreen extends Component {
               {/* //=== 2 === */}
               <TouchableOpacity
                 // onPress={()=>{}}
-                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:"FAQ's",index:2})}}
+                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:translator.getlang("FAQ's",auth.user.language),index:2})}}
                 activeOpacity={0.8}
                 style={styles.rowContainer}
                 >
                   <View>
                     <Text style={styles.textDesign}>
-                      FAQ's
+                      {translator.getlang("FAQ's",auth.user.language)}
                     </Text>
                   </View>
                   <View style={styles.rightIcon}>
@@ -134,7 +135,7 @@ class SuportCenterScreen extends Component {
                 >
                   <View>
                     <Text style={styles.textDesign}>
-                      Email Customer Support
+                      {translator.getlang('Email Customer Support',auth.user.language)}
                     </Text>
                   </View>
                   <View style={styles.rightIcon}>
@@ -146,13 +147,13 @@ class SuportCenterScreen extends Component {
               </TouchableOpacity>
               {/* //=== 4 === */}
               <TouchableOpacity
-                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:"Call Customer Care",index:3})}}
+                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:translator.getlang('Call Customer Care',auth.user.language),index:3})}}
                 activeOpacity={0.8}
                 style={styles.rowContainer}
                 >
                   <View>
                     <Text style={styles.textDesign}>
-                      Call Customer Care
+                      {translator.getlang('Call Customer Care',auth.user.language)}
                     </Text>
                   </View>
                   <View style={styles.rightIcon}>
@@ -165,13 +166,13 @@ class SuportCenterScreen extends Component {
               {/* //=== 5 === */}
               <TouchableOpacity
                 // onPress={()=>{}}
-                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:"Term Of Use",index:4})}}
+                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:translator.getlang('Term Of Use',auth.user.language),index:4})}}
                 activeOpacity={0.8}
                 style={styles.rowContainer}
                 >
                   <View>
                     <Text style={styles.textDesign}>
-                      Term Of Use
+                      {translator.getlang('Term Of Use',auth.user.language)}
                     </Text>
                   </View>
                   <View style={styles.rightIcon}>
@@ -183,13 +184,13 @@ class SuportCenterScreen extends Component {
               </TouchableOpacity>
               {/* //=== 6 === */}
               <TouchableOpacity
-                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:"Privacy Policy",index:5})}}
+                onPress={()=>{this.props.navigation.navigate('PhoneSupport',{title:translator.getlang('Privacy Policy',auth.user.language),index:5})}}
                 activeOpacity={0.8}
                 style={styles.rowContainer}
                 >
                   <View>
                     <Text style={styles.textDesign}>
-                      Privacy Policy
+                      {translator.getlang('Privacy Policy',auth.user.language)}
                     </Text>
                   </View>
                   <View style={styles.rightIcon}>

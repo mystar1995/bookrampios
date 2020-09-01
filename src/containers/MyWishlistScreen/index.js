@@ -126,7 +126,7 @@ class MyWishlistScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  My Wishes
+                  {translator.getlang('My Wishes',auth.user.language)}
                 </Text>
               </View>
               
@@ -231,7 +231,7 @@ class MyWishlistScreen extends  Component{
                         <View style={styles.rowContainer2}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Author:
+                              {translator.getlang('Author',auth.user.language)}:
                             </Text>
                           </View>
                           <TouchableOpacity 
@@ -247,12 +247,12 @@ class MyWishlistScreen extends  Component{
                         <View style={{...styles.rowContainer2,marginTop: 15}}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Format:
+                              {translator.getlang('Format',auth.user.language)}:
                             </Text>
                           </View>
                           <View style={styles.rowHelpView}>
                             <Text style={styles.subheadingText}>
-                              e-book
+                              {translator.getlang('e-book',auth.user.language)}
                             </Text>
                           </View>
                         </View>
@@ -260,7 +260,7 @@ class MyWishlistScreen extends  Component{
                         <View style={{...styles.rowContainer2,marginTop: 5}}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Language:
+                              {translator.getlang('Language',auth.user.language)}:
                             </Text>
                           </View>
                           <View style={styles.rowHelpView}>
@@ -273,7 +273,7 @@ class MyWishlistScreen extends  Component{
                             onPress={()=>this.removewishitem(item.content_id)} 
                             style={styles.deletebutton}>
                             <Text style={styles.submitText}>
-                              Remove Wishitem
+                              {translator.getlang('Remove Wishitem',auth.user.language)}
                             </Text>
                           </TouchableOpacity>
                         </View>
@@ -313,7 +313,7 @@ class MyWishlistScreen extends  Component{
                             <View style={{...styles.rowContainer2}}>
                               <View>
                                 <Text style={styles.subheadingText}>
-                                  Review:
+                                  {translator.getlang('Review',auth.user.language)}:
                                 </Text>
                               </View>
                               <TouchableOpacity
@@ -332,7 +332,7 @@ class MyWishlistScreen extends  Component{
                             onPress={()=>this.selectfreebooks(item.content_id)} 
                             style={styles.submitButton}>
                             <Text style={styles.submitText}>
-                              Want to Read
+                              {translator.getlang('Want to Read',auth.user.language)}
                             </Text>
                           </TouchableOpacity>
                         </View>
@@ -343,6 +343,13 @@ class MyWishlistScreen extends  Component{
               }}
               keyExtractor={(item, index) => index.toString()}
             />
+            {
+              (!wishlist || wishlist.length == 0) && (
+                <View style={{paddingTop:10}}>
+                  <Text style={{...styles.headerText,textAlign:'center'}}>{translator.getlang("You haven¡¯t added any book to your wishist",auth.user.language)}</Text>
+                </View>
+              )
+            }
           </View>
         </View>
       </ScalingDrawer>

@@ -13,6 +13,7 @@ import {connect} from 'react-redux';
 import * as actiontype from '../../constant/action-type';
 import config from '../../config/config';
 import * as translate from '../../utils/translate'
+import { switch_user } from '../../saga/auth';
 
 function SideBar(props) {
   const logoutscreen = () => {
@@ -22,8 +23,15 @@ function SideBar(props) {
 
   const logout = () => {
     const {dispatch,token} = props;
-    dispatch({type:actiontype.AUTH_LOGOUT,token:token,logout:logoutscreen});
-  }
+    dispatch({type:actiontype.AUTH_LOGOUT,token:token,logout:logoutscreen});  
+    }
+    
+    const switchuser = () => {
+      const {dispatch,token} = props;
+  
+      dispatch({type:actiontype.SWITCH_USER,token:token,next:()=>props.navigation.navigate('WriterMain')})
+    }
+
 
   const {user,notification,auth} = props;
   
@@ -53,7 +61,7 @@ function SideBar(props) {
         
         {/* Home */}
         <TouchableOpacity
-            onPress={()=>{props.navigation.navigate('ReaderMain')}} 
+            onPress={()=>{props.navigation.navigate('ReaderMain',{index:0})}} 
             style={styles.rowContainer}
             activeOpacity={0.8}>
               <View style={styles.sideIcon}>
@@ -98,7 +106,7 @@ function SideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                {translate.getlang('My Wishes',auth.user.language)}
+                {translate.getlang('My Wish List',auth.user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -229,6 +237,13 @@ function SideBar(props) {
                 {translate.getlang('Support',auth.user.language)}
                 </Text>
               </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.rowContainer} activeOpacity={0.8} onPress={switchuser}>
+            <View style={styles.listContainer}>
+              <Text style={styles.listText}>
+                {translate.getlang('Contribute as Writer',auth.user.language)}
+              </Text>
+            </View>
           </TouchableOpacity>
         </View>
         {/* === logout === */}

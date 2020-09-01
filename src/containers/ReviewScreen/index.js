@@ -26,6 +26,7 @@ import styles from './styles';
 import colors from '../../utils/colors';
 import {connect} from 'react-redux';
 import config from '../../config/config';
+import * as translator from '../../utils/translate';
 
 const ScreenWidth = Math.round(Dimensions.get('window').width);
 
@@ -56,7 +57,7 @@ class ReviewScreen extends Component {
       isReadMore,
     } = this.state
 
-    const {rating,content} = this.props;
+    const {rating,content,auth} = this.props;
     console.log(rating);
     return (
       <View style={styles.screenContainer}>
@@ -84,7 +85,7 @@ class ReviewScreen extends Component {
             </TouchableOpacity>
             <View>
               <Text style={styles.headerText}>
-                Reader Review
+                {translator.getlang('Reader Review',auth.user.language)}
               </Text>
             </View>
 
@@ -98,7 +99,7 @@ class ReviewScreen extends Component {
               <View style={styles.bookImage}>
                 <Image
                   style={styles.imageStyle2}
-                  source={{uri:config.fileurl + content.cover_image}}
+                  source={content.cover_image?{uri:config.fileurl + content.cover_image}:require('../../assets/placeHolder/default.png')}
                 />
               </View>
               <View style={styles.secondColumn}>
@@ -114,7 +115,7 @@ class ReviewScreen extends Component {
                     <Text
                       numberOfLines={1}
                       style={styles.otherText}>
-                      Author:
+                      {translator.getlang('Author',auth.user.language)}:
                       </Text>
                   </View>
                   <View style={styles.borderView}>
@@ -130,7 +131,7 @@ class ReviewScreen extends Component {
                   <Text
                     numberOfLines={1}
                     style={styles.otherText}>
-                    Format:  e-book
+                    {translator.getlang('Format',auth.user.language)}:  {translator.getlang('e-book',auth.user.language)}
                   </Text>
                 </View>
                 {/* === formate === */}
@@ -138,7 +139,7 @@ class ReviewScreen extends Component {
                   <Text
                     numberOfLines={1}
                     style={styles.otherText}>
-                    Language:  {content.language == 'en'?"English":'Arabic'}
+                    {translator.getlang('Language',auth.user.language)}:  {content.language == 'en'?"English":'Arabic'}
                   </Text>
                 </View>
               </View>
@@ -172,7 +173,7 @@ class ReviewScreen extends Component {
                 </View>
                 <View style={styles.reviewView}>
                   <Text style={styles.reviewText}>
-                    {content.review} Reviews
+                    {content.review} {translator.getlang('Reviews',auth.user.language)}
                     </Text>
                 </View>
               </View>
@@ -238,7 +239,7 @@ class ReviewScreen extends Component {
                         }}
                         style={styles.readMoreButton}>
                         <Text style={styles.readMoreTxt}>
-                          Read More...
+                          {translator.getlang('Read More',auth.user.language)}...
                         </Text>
                       </TouchableOpacity>
                     </View>
@@ -254,7 +255,7 @@ class ReviewScreen extends Component {
             //onPress={()=>this.props.navigation.navigate('ReaderMain')} 
             style={styles.loadButton}>
             <Text style={styles.loadText}>
-              LOAD MORE
+              {translator.getlang('LOAD MORE',auth.user.language)}
               </Text>
           </TouchableOpacity>
         </View>

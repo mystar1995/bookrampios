@@ -29,6 +29,7 @@ import colors from '../../utils/colors';
 import * as StoryService from '../../service/StoryService';
 import { actionTypes } from 'redux-form';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 class PreferredBooksScreen extends  Component{
   
@@ -180,7 +181,7 @@ class PreferredBooksScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  Preferred Books
+                  {translator.getlang('Preferred Books',auth.user.language)}
                 </Text>
               </View>
               <View/>
@@ -196,7 +197,7 @@ class PreferredBooksScreen extends  Component{
                 <View style={styles.inputField}>
                   <TextInput
                     underlineColorAndroid={'transparent'}
-                    placeholder={'Add here'}
+                    placeholder={translator.getlang('Add here',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     autoCorrect={false}
                     autoCapitalize={'none'}
@@ -248,7 +249,7 @@ class PreferredBooksScreen extends  Component{
             {/* === heading Text === */}
             <View style={styles.headingView}>
               <Text style={styles.headingText}>
-                What Kind of books do you like to read? 
+                {translator.getlang('What Kind of books do you like to read')}?
               </Text>
             </View>
             {/* //=== List === */}
@@ -289,7 +290,7 @@ class PreferredBooksScreen extends  Component{
               onPress={this.handleSubmit} 
               style={styles.submitButton}>
               <Text style={styles.submitText}>
-                LET'S GET STARTED
+                {translator.getlang("LET'S GET STARTED",auth.user.language)}
               </Text>
             </TouchableOpacity>
           </View>

@@ -258,7 +258,7 @@ export async function get_earned(token)
     return await axios.get(config.API_URL + "/user/getearned",{headers:{'Authorization':token}});
 }
 
-export async function get_content_by_keyword(data)
+export async function get_content_by_keyword(data,token)
 {
     return await axios.get(config.API_URL + "/content/search_content_with_keyword",{params:data,headers:{"Authorization":token}});
 }

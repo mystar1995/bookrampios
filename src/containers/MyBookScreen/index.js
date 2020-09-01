@@ -31,6 +31,7 @@ import Modal from 'react-native-modal';
 import {connect} from 'react-redux';
 import config from '../../config/config';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 class MyBookScreen extends  Component{
   constructor(props){
@@ -132,7 +133,7 @@ class MyBookScreen extends  Component{
             </TouchableOpacity>
             <View>
               <Text style={styles.headerText}>
-                My Books
+                {translator.getlang('My Books',auth.user.language)}
               </Text>
             </View>
             
@@ -199,7 +200,7 @@ class MyBookScreen extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Author:
+                          {translator.getlang('Author',auth.user.language)}:
                         </Text>
                       </View>
                       <TouchableOpacity 
@@ -215,12 +216,12 @@ class MyBookScreen extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Format:
+                          {translator.getlang('Format',auth.user.language)}:
                         </Text>
                       </View>
                       <View style={styles.normalView}>
                         <Text style={styles.subheadingText}>
-                          e-books
+                          {translator.getlang('e-books',auth.user.language)}:
                         </Text>
                       </View>
                     </View>
@@ -228,12 +229,12 @@ class MyBookScreen extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Language:
+                          {translator.getlang('Language',auth.user.language)}:
                         </Text>
                       </View>
                       <View style={styles.normalView}>
                         <Text style={styles.subheadingText}>
-                          {item.language == 'en'?'English':'Arabic'}
+                          {item.language == 'en'?translator.getlang('English',auth.user.language):translator.getlang('Arabic',auth.user.language)}
                         </Text>
                       </View>
                     </View>
@@ -241,7 +242,7 @@ class MyBookScreen extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Category:
+                          {translator.getlang('Category',auth.user.language)}:
                         </Text>
                       </View>
                       <View style={styles.normalView}>
@@ -278,7 +279,7 @@ class MyBookScreen extends  Component{
                         <View style={styles.rowContainer3}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Review:
+                              {translator.getlang('Review',auth.user.language)}:
                             </Text>
                           </View>
                           <TouchableOpacity
@@ -299,7 +300,7 @@ class MyBookScreen extends  Component{
                         onPress={()=>{this.selectfreebooks(item.id)}}
                         >
                         <Text style={styles.readMoreText}>
-                          READ
+                          {translator.getlang('READ',auth.user.language)}
                         </Text>
                       </TouchableOpacity>
                     </View>
@@ -329,7 +330,7 @@ class MyBookScreen extends  Component{
                 activeOpacity={0.8} 
                 style={styles.modalButton}>
                 <Text style={styles.modalText}>
-                  Write a new book
+                  {translator.getlang('Write a new book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
               {/* //==== Upload a book === */}
@@ -343,7 +344,7 @@ class MyBookScreen extends  Component{
                 activeOpacity={0.8} 
                 style={{...styles.modalButton,borderBottomWidth: 0,}}>
                 <Text style={styles.modalText}>
-                  Upload a book
+                  {translator.getlang('Upload a book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
             </View>

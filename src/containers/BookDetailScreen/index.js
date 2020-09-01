@@ -95,6 +95,39 @@ class BookDetailScreen extends  Component{
 
     return false;
   }
+addtowishlist = () => {
+    const {dispatch,auth,bookinfo} = this.props;
+    dispatch({type:actiontype.ADD_WISHLIST,contentid:bookinfo.id,token:auth.token});
+  }
+
+  deletetowishlist = () => {
+    const {dispatch,auth,bookinfo} = this.props;
+    dispatch({type:actiontype.DELETE_WISHLIST,contentid:bookinfo.id,token:auth.token})
+  }
+
+  checkwishlist = () => {
+    const {wishlist,bookinfo} = this.props;
+    for(let item in wishlist)
+    {
+      if(wishlist[item].content_id == bookinfo.id)
+      {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  wishlistaction = () => {
+    if(this.checkwishlist())
+    {
+      this.deletetowishlist()
+    }
+    else
+    {
+      this.addtowishlist()
+    }
+  }
   render() {
     let {
       name,

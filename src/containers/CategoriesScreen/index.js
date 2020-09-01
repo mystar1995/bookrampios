@@ -176,12 +176,9 @@ class CategoriesScreen extends Component {
                             <Text style={styles.textBook}>
                               {item.category}
                             </Text>
-                            <Text style={styles.textDesc}>
-                              {item.description}
-                            </Text>
                           </View>
                         </View>
-                        {/* <TouchableOpacity
+                         <TouchableOpacity
                           activeOpacity={0.8}
                           onPress={()=>{this.props.navigation.replace(auth.role == 'writer'?'WriterMain':'ReaderMain',{index: index,category:item.id,categoryname:item.category})}}
                           style={styles.rightArrow}
@@ -190,7 +187,7 @@ class CategoriesScreen extends Component {
                             source={require('../../assets/icons/rightCircleArrow.png')}
                             style={styles.imageStyle}
                           />
-                        </TouchableOpacity> */}
+                        </TouchableOpacity>
                       </TouchableOpacity>
                     )
                   }

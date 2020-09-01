@@ -44,6 +44,7 @@ import Alert from '../../components/Alert';
 import HTML from 'react-native-render-html';
 const ScreenWidth = Math.round(Dimensions.get('window').width);
 const ScreenHeight = Math.round(Dimensions.get('window').height);
+import * as translator from '../../utils/translate';
 
 class WordOfAbstarct extends Component {
     constructor(props) {
@@ -79,10 +80,11 @@ class WordOfAbstarct extends Component {
         
     }
     shareContent = () => {
+      let {read} = this.props;
         Share.share({
-            message: 'This is nice book',
-            url: 'http://google.com',
-            title: '?'
+            message: read.book_content,
+            url: read.content_file?config.fileurl + read.content_file:'',
+            title: read.title
         })
     }
     //=== rating ==
@@ -238,7 +240,8 @@ class WordOfAbstarct extends Component {
     }
 
     getrating = (id) => {
-        this.next();
+       const {dispatch,auth} = this.props;
+        dispatch({type:actiontype.INIT_RATING,token:auth.token,contentid:id,next:this.next})
     }
 
     createfeedback = () => {
@@ -373,7 +376,7 @@ class WordOfAbstarct extends Component {
                         <View style={styles.headingView}>
                             <View style={styles.boxStyle2}>
                                 <Image
-                                    source={{uri:config.fileurl + read.cover_image}}
+                                    source={read.cover_image?{uri:config.fileurl + read.cover_image}:require('../../assets/placeHolder/default.png')}
                                     style={styles.imageStyle2}
                                 />
                             </View>
@@ -413,7 +416,7 @@ class WordOfAbstarct extends Component {
                                     >
                                         <View style={styles.textContainer}>
                                             <Text style={[styles.headingText2, {}]}>
-                                                Feedback here
+                                                {translator.getlang('Feedback here',auth.user.language)}
                                             </Text>
                                         </View>
 
@@ -457,7 +460,7 @@ class WordOfAbstarct extends Component {
                                             </View>
 
                                             <Text style={styles.headingText2}>
-                                                Feedback
+                                                {translator.getlang('Feedback',auth.user.language)}
                                         </Text>
                                         </View>
                                     </TouchableHighlight>
@@ -478,7 +481,7 @@ class WordOfAbstarct extends Component {
                                             </View>
 
                                             <Text style={styles.headingText2}>
-                                                rating/review
+                                                {translator.getlang('rating',auth.user.language)}/{translator.getlang('review',auth.user.language)}
                                         </Text>
                                         </View>
                                     </TouchableHighlight>
@@ -519,7 +522,7 @@ class WordOfAbstarct extends Component {
                                             </View>
 
                                             <Text style={styles.headingText2}>
-                                                Bookmark
+                                                {translator.getlang('Bookmark',auth.user.language)}
                                             </Text>
                                         </View>
                                     </TouchableHighlight>
@@ -529,7 +532,7 @@ class WordOfAbstarct extends Component {
                             {/* ==page no == */}
                             <View style={styles.pageNOContainer}>
                                 <Text style={styles.pageText}>
-                                    Page {this.state.currentpage}
+                                    {translator.getlang('Page',auth.user.language)} {this.state.currentpage}
                                 </Text>
                             </View>
                         </View>
@@ -605,7 +608,7 @@ class WordOfAbstarct extends Component {
                                 </View>
                                 <View style={{ width: '100%', flex: 1}}>
                                     <Text style={[styles.pageProgressText]}>
-                                        Page {this.state.currentpage} of {this.state.totalpage}
+                                        {translator.getlang('Page',auth.user.language)} {this.state.currentpage} of {this.state.totalpage}
                                     </Text>
                                 </View>
                             </View>
@@ -687,7 +690,7 @@ class WordOfAbstarct extends Component {
                                                 }}
                                                 style={styles.buttonContainer}>
                                                 <Text style={styles.buttonText}>
-                                                    Next
+                                                    {translator.getlang('Next',auth.user.language)}
                                                 </Text>
                                             </TouchableOpacity>
                                             : <View />
@@ -716,7 +719,7 @@ class WordOfAbstarct extends Component {
                                 onPress={() => this.handleSubmit()}
                                 style={styles.submitButton}>
                                 <Text style={styles.submitText}>
-                                    SUBMIT
+                                    {translator.getlang('SUBMIT',auth.user.language)}
                                 </Text>
                             </TouchableOpacity>
                             <View style={styles.footerView} />

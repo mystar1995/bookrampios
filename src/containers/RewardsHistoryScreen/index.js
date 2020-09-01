@@ -21,6 +21,7 @@ import styles from './styles';
 import colors from '../../utils/colors';
 import {rewardHistory} from './data';
 import {connect} from 'react-redux';
+import * as translator from '../../utils/translate';
 
 class RewardsHistoryScreen extends  Component{
   constructor(props){
@@ -97,7 +98,7 @@ class RewardsHistoryScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  Rewards History
+                  {translator.getlang('Rewards History',auth.user.language)}
                 </Text>
               </View>
 
@@ -112,7 +113,7 @@ class RewardsHistoryScreen extends  Component{
                 {/* //===head count === */}
                 <View>
                   <Text style={styles.descTxt}>
-                    Total earned
+                    {translator.getlang('Total earned',auth.user.language)}
                   </Text>
                 </View>
                 {/* //===count === */}
@@ -127,7 +128,7 @@ class RewardsHistoryScreen extends  Component{
                 {/* //===head count === */}
                 <View>
                   <Text style={styles.descTxt}>
-                    Total burned
+                    {translator.getlang('Total burned',auth.user.language)}
                   </Text>
                 </View>
                 {/* //===count === */}
@@ -143,7 +144,7 @@ class RewardsHistoryScreen extends  Component{
             <View style={{...styles.rowContainer,marginTop: 20}}>
               <View style={styles.customWidth}>
                 <Text style={styles.headTxt}>
-                  Earned
+                  {translator.getlang('Earned',auth.user.language)}
                 </Text>
               </View>
               <View style={styles.customWidth2}>
@@ -153,7 +154,7 @@ class RewardsHistoryScreen extends  Component{
               </View>
               <View style={styles.customWidth3}>
                 <Text style={styles.headTxt}>
-                  Points
+                  {translator.getlang('Points',auth.user.language)}
                 </Text>
               </View>
             </View>

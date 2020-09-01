@@ -13,6 +13,7 @@ import styles from '../../containers/WriterDraftScreen/styles';
 import {connect} from 'react-redux';
 import config from '../../config/config';
 import Moment from 'moment';
+import * as translator from '../../utils/translate';
 
 class Submission extends Component {
   constructor(props){
@@ -32,7 +33,7 @@ class Submission extends Component {
       share
     } = this.state; 
 
-    const {home} = this.props;
+    const {home,auth} = this.props;
     
 		return (
 			<View>
@@ -73,7 +74,7 @@ class Submission extends Component {
                   <View style={[styles.rowContainer,styles.marginStyle]}>
                     <View>
                       <Text style={styles.updateText}>
-                        Last update {day} days ago at 
+                        {translator.getlang("Last Update",auth.user.language)} {day} {translator.getlang("days ago at",auth.user.language)}
                       </Text>
                     </View>
                     <View>
@@ -133,7 +134,8 @@ class Submission extends Component {
 }
 
 const mapstatetoprops = (state) => ({
-  home:state.home
+  home:state.home,
+  auth:state.auth
 })
 
 export default connect(mapstatetoprops)(Submission);

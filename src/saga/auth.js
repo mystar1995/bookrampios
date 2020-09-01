@@ -192,13 +192,20 @@ export function* resetpassword()
 {
     yield takeEvery(actiontype.RESET_PASSWORD,function*(payload){
         let data = payload.data;
-        const result = yield call(UserService.resetpassword,data);
-        if(result.data.success)
-        {
-            yield put({type:actiontype.AITH_SUCCESS,token:result.data.token,role:result.data.usertype});
-            AsyncStorage.setItem("userinfo",JSON.stringify({token:result.data.token,role:result.data.usertype}));
+      try{
+            const result = yield call(UserService.resetpassword,data);
+            if(result.data.success)
+            {
+                yield put({type:actiontype.AITH_SUCCESS,token:result.data.token,role:result.data.usertype});
+                AsyncStorage.setItem("userinfo",JSON.stringify({token:result.data.token,role:result.data.usertype}));
+            }
+            payload.next(result.data);
         }
-        payload.next(result.data);
+        catch(e)
+        {
+            console.log(e);
+        }
+
     })
 }
 
@@ -329,7 +336,31 @@ export function* get_fanlist()
 
         }
     })
+}
 
+export function* switch_user()
+{
+    yield takeEvery(actiontype.SWITCH_USER,function*(payload){
+        let token = payload.token;
+        console.log(token);
+        try{
+            let result = yield call(UserService.switchuser,token);
+            console.log(result.data);
+            if(result.data.success)
+            {
+                let userinfo = yield call(AsyncStorage.getItem,"userinfo");
+                userinfo = JSON.parse(userinfo);
+                userinfo.role = "writer";
+                AsyncStorage.setItem('userinfo',JSON.stringify(userinfo));
+                yield put({type:actiontype.AITH_SUCCESS,token:userinfo.token,role:userinfo.role});
+                payload.next();
+            }
+        }
+        catch(e)
+        {
+            console.log(e);
+        }
+    })
 }
 
 export default function* rootSaga()
@@ -346,6 +377,7 @@ export default function* rootSaga()
         fork(init_reward),
         fork(update_lang),
         fork(earn_rewards),
-        fork(get_fanlist)
+        fork(get_fanlist),
+        fork(switch_user)
     ])
 }

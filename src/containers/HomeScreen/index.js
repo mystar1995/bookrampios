@@ -60,24 +60,23 @@ class HomeScreen extends  Component{
     this.props.navigation.navigate('Bookmark');
   }
 
-  get_continue_reading = (bookmark) => {
-    let contentid = [];
-    let content = [];
-    for(let item in bookmark)
+  getcontinuereading = () => {
+    const {home} = this.props;
+    let continue_reading = [];
+    let idarray = [];
+
+    for(let item in home.continue_reading)
     {
-      if(contentid.length >= 5)
+      if(idarray.indexOf(home.continue_reading[item].content_id) == -1)
       {
-        break;
-      }
-      if(contentid.indexOf(bookmark[item].content_id) == -1)
-      {
-        content.push(bookmark[item]);
-        contentid.push(bookmark[item].content_id);
+        continue_reading.push(home.continue_reading[item]);
+        idarray.push(home.continue_reading[item].content_id);
       }
     }
 
-    return content;
+    return continue_reading;
   }
+
 
   render() {
     let {
@@ -193,7 +192,7 @@ class HomeScreen extends  Component{
                     </View>
                     <View style={styles.bookImageStyle1}>
                       <Image
-                        source={{uri:config.fileurl + item.cover_image}}
+                        source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                         style={styles.imageStyle}
                       />
                     </View>
@@ -204,7 +203,7 @@ class HomeScreen extends  Component{
             </View>
             {/* === continue reading === */}
             {
-              (this.get_continue_reading(continue_reading) && this.get_continue_reading(continue_reading).length > 0) && (
+              (home.continue_reading && home.continue_reading.length > 0) && (
               <>
                 <View style={styles.headingView}>
                   <View>
@@ -227,7 +226,7 @@ class HomeScreen extends  Component{
                 </View>
                 <View style={styles.rowContainer}>
                   <FlatList
-                    data={this.get_continue_reading(continue_reading)}
+                    data={this.getcontinuereading(home.continue_reading)}
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
                     extraData={this.state}
@@ -238,7 +237,7 @@ class HomeScreen extends  Component{
                         <View style={styles.boxStyle}>
                           <Image
                             style={styles.imageStyle2}
-                            source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/book1.png')}
+                            source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                           />
                         </View>
                         <View>
@@ -288,7 +287,7 @@ class HomeScreen extends  Component{
                           <View style={styles.boxStyle2}>
                             <Image
                               style={styles.imageStyle2}
-                              source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/book1.png')}
+                              source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                             />
                           </View>
                           <View>
@@ -341,7 +340,7 @@ class HomeScreen extends  Component{
                           <View style={styles.boxStyle}>
                             <Image
                               style={styles.imageStyle2}
-                              source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/book1.png')}
+                              source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                             />
                           </View>
                           <View>
@@ -393,7 +392,7 @@ class HomeScreen extends  Component{
                           <View style={styles.boxStyle2}>
                             <Image
                               style={styles.imageStyle2}
-                              source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/book1.png')}
+                              source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                             />
                           </View>
                           <View>

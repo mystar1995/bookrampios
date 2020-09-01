@@ -37,6 +37,7 @@ import Paypal from 'react-native-paypal-wrapper';
 import * as actiontype from '../../constant/action-type';
 import Alert from 'react-native-awesome-alerts';
 import responsiveText from '../../utils/fontResponsive';
+import * as translator from '../../utils/translate';
 
 class PaymentScreen extends  Component{
   constructor(props){
@@ -157,7 +158,7 @@ class PaymentScreen extends  Component{
                 </TouchableOpacity>
                 <View>
                   <Text style={styles.headerText}>
-                    Payments
+                    {translator.getlang('Payments',auth.user.language)}
                   </Text>
                 </View>
                 <View/>
@@ -185,7 +186,7 @@ class PaymentScreen extends  Component{
                   <View style={styles.rowContainer2}>
                     <View>
                       <Text style={styles.subheadingText}>
-                        Author:
+                        {translator.getlang('Author',auth.user.language)}:
                       </Text>
                     </View>
                     <TouchableOpacity 
@@ -201,12 +202,12 @@ class PaymentScreen extends  Component{
                   <View style={{...styles.rowContainer2,marginTop: 15}}>
                     <View>
                       <Text style={styles.subheadingText}>
-                        Format:
+                        {translator.getlang('Format',auth.user.language)}:
                       </Text>
                     </View>
                     <View style={styles.rowHelpView}>
                       <Text style={styles.subheadingText}>
-                        e-book
+                        {translator.getlang('e-book',auth.user.language)}
                       </Text>
                     </View>
                   </View>
@@ -214,7 +215,7 @@ class PaymentScreen extends  Component{
                   <View style={{...styles.rowContainer2,marginTop: 5}}>
                     <View>
                       <Text style={styles.subheadingText}>
-                        Language:
+                        {translator.getlang('Language',auth.user.language)}:
                       </Text>
                     </View>
                     <View style={styles.rowHelpView}>
@@ -259,7 +260,7 @@ class PaymentScreen extends  Component{
                       <View style={{...styles.rowContainer2}}>
                         <View>
                           <Text style={styles.subheadingText}>
-                            Review:
+                            {translator.getlang('Review',auth.user.language)}:
                           </Text>
                         </View>
                         <TouchableOpacity
@@ -286,7 +287,7 @@ class PaymentScreen extends  Component{
                       isChecked: !isChecked
                     })}}
                     containerStyle={styles.checkBoxContainer}
-                    title='Use LOL Points'
+                    title={translator.getlang('Use LOL Points',auth.user.language)}
                     checkedColor={colors.primary}
                     textStyle={styles.checkBoxTxt}
                     checked={isChecked}
@@ -294,7 +295,7 @@ class PaymentScreen extends  Component{
                 </View>
                 <View>
                   <Text style={styles.pointText}>
-                    {auth.user.rewards} points
+                    {auth.user.rewards} {translator.getlang("points",auth.user.language)}
                   </Text>
                 </View>
               </View>
@@ -303,7 +304,7 @@ class PaymentScreen extends  Component{
               <View style={[styles.rowContainer31,styles.marginIncrease]}>
                 <View>
                   <Text style={styles.pointText}>
-                    Total reader rewards
+                    {translator.getlang("Total reader rewards",auth.user.language)}
                   </Text>
                 </View>
                 <View>
@@ -316,7 +317,7 @@ class PaymentScreen extends  Component{
               <View style={[styles.rowContainer31,{marginTop: 5}]}>
                 <View>
                   <Text style={styles.pointText}>
-                    LOL rewards
+                    {translator.getlang("LOL rewards",auth.user.language)}
                   </Text>
                 </View>
                 <View>
@@ -329,7 +330,7 @@ class PaymentScreen extends  Component{
               <View style={[styles.rowContainer31,styles.totalView]}>
                 <View>
                   <Text style={styles.pointText}>
-                    Total
+                    {translator.getlang("Total",auth.user.language)}
                   </Text>
                 </View>
                 <View>
@@ -344,7 +345,7 @@ class PaymentScreen extends  Component{
                 onPress={()=>this.requestpayment()} 
                 style={styles.payButton}>
                 <Text style={styles.payText}>
-                  PROCEED TO PAY
+                  {translator.getlang('PROCEED TO PAY',auth.user.language)}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -366,7 +367,7 @@ class PaymentScreen extends  Component{
                 </View>
                   <View style={styles.txtView}>
                     <Text style={styles.modalText}>
-                      Order placed successfully!
+                      {translator.getlang('Order placed successfully',auth.user.language)}!
                     </Text>
                   </View>
                 {/* //=== payment === */}
@@ -377,7 +378,7 @@ class PaymentScreen extends  Component{
                     },()=>this.props.navigation.navigate('ReadBook'))} 
                     style={styles.readButton}>
                     <Text style={styles.readText}>
-                      READ NOW
+                      {translator.getlang('READ NOW',auth.user.language)}
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
@@ -388,7 +389,7 @@ class PaymentScreen extends  Component{
                     })}
                   >
                     <Text style={styles.backText}>
-                      Back
+                      {translator.getlang('Back',auth.user.language)}
                     </Text>
                   </TouchableOpacity>
               </View>
@@ -397,14 +398,14 @@ class PaymentScreen extends  Component{
         </ScrollView>
         <Alert 
           show={this.state.dataopen}
-          title="Buy More Rewards"
-          message="Do you want to Buy More Rewards ? "
+          title={translator.getlang("Buy More Rewards",auth.user.language)}
+          message={translator.getlang("Do you want to Buy More Rewards",auth.user.language) + ' ?'}
           closeOnTouchOutside={false}
           closeOnHardwareBackPress={false}
           showConfirmButton={true}
           showCancelButton={true}
-          confirmText="YES"
-          cancelText="NO"
+          confirmText={translator.getlang("Yes",auth.user.language)}
+          cancelText={translator.getlang("No",auth.user.language)}
           contentContainerStyle={{backgroundColor:colors.secondry,width:'80%',borderRadius:20}}
           titleStyle={{color:colors.primary,fontSize:responsiveText(20),fontWeight:'bold',alignSelf:'center'}}
           messageStyle={{color:colors.primary,fontSize:responsiveText(15),textAlign:'center'}}

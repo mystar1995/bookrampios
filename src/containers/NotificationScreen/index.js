@@ -88,7 +88,7 @@ class NotificationScreen extends Component {
               </TouchableOpacity>
               <View>
                 <Text style={styles.headingText}>
-                  Notification
+                  {translator.getlang('Notification',auth.user.language)}
                 </Text>
               </View>
               

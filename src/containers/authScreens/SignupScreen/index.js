@@ -103,7 +103,8 @@ class SignupScreen extends Component {
       country:this.state.country,
       city:this.state.city,
       phone_number:this.state.areaCode + "" + this.state.mobileNumber,
-      terms_n_condition:this.state.isChecked?'on':'off'
+      terms_n_condition:this.state.isChecked?'on':'off',
+      age_group:this.state.ageGroup
     }
 
     console.log(this.checkvalidation(user));
@@ -212,6 +213,7 @@ class SignupScreen extends Component {
     let error = this.geterror();
     return (
       <KeyboardAvoidingView
+        scrollEnabled
         style={{flex:1}}
         behavior="padding"
         >

@@ -37,6 +37,7 @@ import CountryPicker,{DARK_THEME} from 'react-native-country-picker-modal';
 import Alert from 'react-native-awesome-alerts';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Moment from 'moment';
+import * as translator from '../../utils/translate'
 class MyProfileScreen extends  Component{
   constructor(props){
     super(props)
@@ -307,7 +308,7 @@ class MyProfileScreen extends  Component{
                 <View style={styles.nameView}>
                   <View>
                     <Text style={styles.labelText}>
-                      Hello
+                      {translator.getlang('Hello',auth.user.language)}
                     </Text>
                   </View>
                   <View>
@@ -338,8 +339,8 @@ class MyProfileScreen extends  Component{
                 onChangeText={(val)=>{this.setState({
                   username: val
                 })}}
-                label={'Full Name'}
-                placeholder={'Full Name'}
+                label={translator.getlang('Full Name',auth.user.language)}
+                placeholder={translator.getlang('Full Name',auth.user.language)}
                 value={username}
                 theme={{ colors: { 
                   text: colors.primary,
@@ -357,8 +358,8 @@ class MyProfileScreen extends  Component{
                 underlineColor={isEdit?colors.grayColor:'transparent'} 
                 style={styles.inputField}
                 editable={isEdit}
-                label={'Email Id'}
-                placeholder={'Email Id'}
+                label={translator.getlang('Email',auth.user.language)}
+                placeholder={translator.getlang('Email',auth.user.language)}
                 value={email}
                 onChangeText={(email)=>{this.setState({
                   email
@@ -382,7 +383,7 @@ class MyProfileScreen extends  Component{
                       underlineColor={isEdit?colors.grayColor:'transparent'} 
                       style={styles.inputField}
                       editable={isEdit}
-                      label={'Password'}
+                      label={translator.getlang('Password',auth.user.language)}
                       value={password}
                       onChangeText={(password)=>{this.setState({
                         password
@@ -404,7 +405,7 @@ class MyProfileScreen extends  Component{
                       underlineColor={isEdit?colors.grayColor:'transparent'} 
                       style={styles.inputField}
                       editable={isEdit}
-                      label={'Confirm Password'}
+                      label={translator.getlang('Confirm Password',auth.user.language)}
                       value={confirmpassword}
                       onChangeText={(confirmpassword)=>{this.setState({
                         confirmpassword
@@ -428,13 +429,13 @@ class MyProfileScreen extends  Component{
                 <View style={styles.viewText}>
                   <View>
                     <Text style={styles.labelText2}>
-                      Gender
+                      {translator.getlang('Gender',auth.user.language)}
                     </Text>
                   </View>
                   <Dropdown
                     labelHeight={0}
                     data={genderData}
-                    placeholder={'Gender'}
+                    placeholder={translator.getlang('Gender',auth.user.language)}
                     underlineColor={isEdit?colors.grayColor:'transparent'} 
                     placeholderTextColor={colors.primary}
                     value={gender}
@@ -459,8 +460,8 @@ class MyProfileScreen extends  Component{
                   underlineColor="transparent" 
                   style={styles.inputField}
                   editable={isEdit}
-                  label={'Gender'}
-                  placeholder={'Gender'}
+                  label={translator.getlang('Gender',auth.user.language)}
+                  placeholder={translator.getlang('Gender',auth.user.language)}
                   value={gender}
                   theme={{ colors: { 
                     text: colors.primary,
@@ -480,7 +481,7 @@ class MyProfileScreen extends  Component{
                   style={styles.viewText}>
                   <View>
                     <Text style={styles.labelText2}>
-                      Date of Birth
+                      {translator.getlang('Date of Birth',auth.user.language)}
                     </Text>
                   </View>
                   <View>
@@ -496,8 +497,8 @@ class MyProfileScreen extends  Component{
                   underlineColor="transparent" 
                   style={styles.inputField}
                   editable={isEdit}
-                  label={'Date of Birth'}
-                  placeholder={'Date of Birth'}
+                  label={translator.getlang('Date of Birth',auth.user.language)}
+                  placeholder={translator.getlang('Date of Birth',auth.user.language)}
                   value={dob? moment(dob).format('YYYY-MM-DD'): ''}
                   theme={{ colors: { 
                     text: colors.primary,
@@ -511,7 +512,7 @@ class MyProfileScreen extends  Component{
             {/* //=== Country === */}
             <View style={styles.inputContainer}>
               <View style={{...styles.viewText,borderBottomWidth:isEdit?1:0}}>
-                <Text style={{color:colors.grayColor}}>Country</Text>
+                <Text style={{color:colors.grayColor}}>{translator.getlang('Country',auth.user.language)}</Text>
                 {
                   !isEdit && (
                       <Text style={{...styles.labelText2,color:'white'}}>{en[country]}</Text>

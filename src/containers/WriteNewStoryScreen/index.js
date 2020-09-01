@@ -30,6 +30,7 @@ import {connect} from 'react-redux';
 import * as actiontype from '../../constant/action-type';
 import config from '../../config/config';
 import Alert from '../../components/Alert';
+import * as translator from '../../utils/translate';
 
 class WriteNewStoryScreen extends  Component{
   constructor(props){
@@ -229,6 +230,7 @@ class WriteNewStoryScreen extends  Component{
     },{
       value: '60',label:'60+'
     }];
+    let {auth} = this.props;
     return (
       <KeyboardAwareScrollView
         scrollEnabled
@@ -262,7 +264,7 @@ class WriteNewStoryScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  New Story
+                  {translator.getlang('New Story',auth.user.language)}
                 </Text>
               </View>
               
@@ -289,6 +291,11 @@ class WriteNewStoryScreen extends  Component{
                 />
               )
               }
+              {
+                imageData == '' && (
+                  <Image style={styles.imageStyle2} source={require('../../assets/placeHolder/default.png')}></Image>
+                )
+              }
             </View>
             {/* === change cover === */}
             <TouchableOpacity
@@ -298,7 +305,7 @@ class WriteNewStoryScreen extends  Component{
             >
               <Text 
                 style={styles.chgTxt}>
-                {imageData != ''?'Change cover':'Add Cover Image'}
+                {imageData != ''?translator.getlang('Change cover',auth.user.language):translator.getlang('Add Cover Image',auth.user.language)}
               </Text>
             </TouchableOpacity>
             {/* ===  */}
@@ -313,7 +320,7 @@ class WriteNewStoryScreen extends  Component{
                   <Dropdown
                     labelHeight={0}
                     data={languageData}
-                    placeholder={'Language'}
+                    placeholder={translator.getlang('Language',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     value={language}
                     renderAccessory={this.renderArrow}
@@ -341,7 +348,7 @@ class WriteNewStoryScreen extends  Component{
                   <Dropdown
                     labelHeight={0}
                     data={categoryData}
-                    placeholder={'Select Category'}
+                    placeholder={translator.getlang('Select Category',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     value={category}
                     renderAccessory={this.renderArrow}
@@ -369,7 +376,7 @@ class WriteNewStoryScreen extends  Component{
                   <View style={styles.inputField}>
                     <TextInput
                       underlineColorAndroid={'transparent'}
-                      placeholder={'Title'}
+                      placeholder={translator.getlang('Title',auth.user.language)}
                       placeholderTextColor={colors.grayColor}
                       autoCorrect={false}
                       autoCapitalize={'none'}
@@ -392,7 +399,7 @@ class WriteNewStoryScreen extends  Component{
                   <View style={styles.inputField}>
                     <TextInput
                       underlineColorAndroid={'transparent'}
-                      placeholder={'Short Description'}
+                      placeholder={translator.getlang('Short Description',auth.user.language)}
                       placeholderTextColor={colors.grayColor}
                       autoCorrect={false}
                       autoCapitalize={'none'}
@@ -415,7 +422,7 @@ class WriteNewStoryScreen extends  Component{
                   <Dropdown
                     labelHeight={0}
                     data={ageGroupData}
-                    placeholder={'Age Group'}
+                    placeholder={translator.getlang('Age Group',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     value={ageGroup}
                     renderAccessory={this.renderArrow}
@@ -443,7 +450,7 @@ class WriteNewStoryScreen extends  Component{
                   <View style={{...styles.inputField,marginTop: 10}}>
                     <TextInput
                       underlineColorAndroid={'transparent'}
-                      placeholder={'Story'}
+                      placeholder={translator.getlang('Story',auth.user.language)}
                       placeholderTextColor={colors.grayColor}
                       autoCorrect={false}
                       multiline={true}
@@ -466,9 +473,10 @@ class WriteNewStoryScreen extends  Component{
                 onPress={this.startwriting}
                 >
                   <Text style={styles.startText}>
-                    START WRITING
+                    {translator.getlang('START WRITING',auth.user.language)}
                   </Text>
               </TouchableOpacity>
+
 
             </View>
           </View>
@@ -493,7 +501,7 @@ class WriteNewStoryScreen extends  Component{
                 activeOpacity={0.8} 
                 style={styles.modalButton}>
                 <Text style={styles.modalText}>
-                  Write a new book
+                  {translator.getlang('Write a new book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
               {/* //==== Upload a book === */}
@@ -507,7 +515,7 @@ class WriteNewStoryScreen extends  Component{
                 activeOpacity={0.8} 
                 style={{...styles.modalButton,borderBottomWidth: 0,}}>
                 <Text style={styles.modalText}>
-                  Upload a book
+                  {translator.getlang('Upload a book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
             </View>

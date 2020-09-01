@@ -107,19 +107,6 @@ class LoginScreen extends Component {
       return false;
     }
 
-    if(!this.state.accept_policy)
-    {
-      this.setState({
-        alert:{
-          show:true,
-          message:"Please Accept Terms and Policy",
-          title:'Validate Error'
-        }
-      })
-      //Alert.alert("Please Accept Terms and Policy");
-      return false;
-    }
-
     return true;
   }
 
@@ -250,18 +237,8 @@ class LoginScreen extends Component {
                 </LinearGradient>
                 {/* === forgetpassword === */}
                 <View style={styles.rowContainer2}>
-                  <View>
-                    <CheckBox
-                      size={20}
-                      containerStyle={styles.checkBoxContainer}
-                      title='I accept all term & conditions'
-                      textStyle={{...styles.forgetText,marginLeft: 2}}
-                      checked={this.state.accept_policy}
-                      onPress={()=>this.setState({accept_policy:!this.state.accept_policy})}
-                    />
-                  </View>
-                  <View>
-                    <CheckBox
+                 <View>
+                <CheckBox
                       size={20}
                       containerStyle={styles.checkBoxContainer}
                       title='Remember Me'

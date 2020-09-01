@@ -32,6 +32,7 @@ import {connect} from 'react-redux'
 import * as actiontype from '../../constant/action-type';
 import * as StoryService from '../../service/StoryService';
 import config from '../../config/config';
+import * as translator from '../../utils/translate';
 
 class SearchScreen extends  Component{
   searchcontainer = null;
@@ -116,11 +117,12 @@ class SearchScreen extends  Component{
         console.log('keyword',keywordlist);
         try
         {
-          StoryService.get_content_by_keyword(keywordlist).then(res=>{
+          StoryService.get_content_by_keyword(keywordlist,auth.token).then(res=>{
             if(res.data.success)
             {
               this.setState({
-                content:{data:res.data.data}
+                content:{data:res.data.data},
+                searchKey:keywordlist.join(',')
               })
             }
           })
@@ -132,6 +134,13 @@ class SearchScreen extends  Component{
         
       }
     }
+    else
+    {
+      this.setState({
+        searchKey:""
+      })
+    }
+    
 
     
   }
@@ -265,7 +274,7 @@ class SearchScreen extends  Component{
 
     let {search,content} = this.state;
     console.log('resdata',content.data);
-
+    let {auth} = this.props;
     return (
       <View style={styles.screenContainer}>
         <StatusBar 
@@ -292,7 +301,7 @@ class SearchScreen extends  Component{
             </TouchableOpacity>
             <View>
               <Text style={styles.headerText}>
-                Search {(this.props.category && this.props.category.category)?"In " + this.props.category.categoryname:""}
+                {translator.getlang('Search',auth.user.language)} {(this.props.category && this.props.category.category)?"In " + this.props.category.categoryname:""}
               </Text>
             </View>
             
@@ -309,7 +318,7 @@ class SearchScreen extends  Component{
                 <View style={styles.inputField}>
                   <TextInput
                     underlineColorAndroid={'transparent'}
-                    placeholder={'Search'}
+                    placeholder={translator.getlang('Search',auth.user.language)}
                     placeholderTextColor={colors.grayColor}
                     autoCorrect={false}
                     autoCapitalize={'none'}
@@ -352,7 +361,7 @@ class SearchScreen extends  Component{
                           onPress={()=>this.selectbook(item.id)}  
                           style={styles.bookImageStyle1}>
                         <Image
-                          source={{uri:config.fileurl + item.cover_image}}
+                          source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                           style={styles.imageStyle}
                         />
                       </TouchableOpacity>
@@ -367,7 +376,7 @@ class SearchScreen extends  Component{
                         <View style={styles.rowContainer3}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Author:
+                              {translator.getlang('Author',auth.user.language)}:
                             </Text>
                           </View>
                           <TouchableOpacity 
@@ -383,7 +392,7 @@ class SearchScreen extends  Component{
                         <View style={styles.rowContainer3}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Format:
+                              {translator.getlang('Format',auth.user.language)}:
                             </Text>
                           </View>
                           <View style={styles.normalView}>
@@ -396,7 +405,7 @@ class SearchScreen extends  Component{
                         <View style={styles.rowContainer3}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Language:
+                              {translator.getlang('Language',auth.user.language)}:
                             </Text>
                           </View>
                           <View style={styles.normalView}>
@@ -409,7 +418,7 @@ class SearchScreen extends  Component{
                         <View style={styles.rowContainer3}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Category:
+                              {translator.getlang('Category',auth.user.language)}:
                             </Text>
                           </View>
                           <View style={styles.normalView}>
@@ -446,7 +455,7 @@ class SearchScreen extends  Component{
                             <View style={styles.rowContainer3}>
                               <View>
                                 <Text style={styles.subheadingText}>
-                                  Review:
+                                  {translator.getlang('Review',auth.user.language)}:
                                 </Text>
                               </View>
                               <TouchableOpacity
@@ -469,7 +478,7 @@ class SearchScreen extends  Component{
                                 onPress={()=>{this.read(item.id)}}
                                 >
                                 <Text style={styles.readMoreText}>
-                                  Read
+                                  {translator.getlang('Read',auth.user.language)}
                                 </Text>
                               </TouchableOpacity>    
                             )
@@ -482,7 +491,7 @@ class SearchScreen extends  Component{
                                 onPress={()=>{this.addwishlist(item.id)}}
                                 >
                                 <Text style={styles.readMoreText}>
-                                  Add to Wishlist
+                                  {translator.getlang('Add to Wishlist',auth.user.language)}
                                 </Text>
                               </TouchableOpacity>
                             )

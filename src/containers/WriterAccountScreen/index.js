@@ -26,6 +26,7 @@ import {connect} from 'react-redux';
 
 import config from '../../config/config';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 
 class WriterAccountScreen extends  Component{
@@ -101,7 +102,7 @@ class WriterAccountScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  My Account
+                  {translator.getlang('My Account',auth.user.language)}
                 </Text>
               </View>
              <View/>
@@ -131,7 +132,7 @@ class WriterAccountScreen extends  Component{
                       <Text 
                         numberOfLines={1} 
                         style={styles.pointTxt}>
-                        Reward point :{auth.user.rewards}
+                        {translator.getlang('Reward Point',auth.user.language)}  :{auth.user.rewards}
                       </Text>
                     </View>
                   </View>
@@ -163,7 +164,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            My Profile
+                            {translator.getlang('My Profile',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -200,7 +201,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            My Bookmarks
+                            {translator.getlang('My Bookmarks',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -237,7 +238,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            My Books
+                           {translator.getlang('My Books',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -274,7 +275,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Sold Books
+                            {translator.getlang('Sold Books',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -311,7 +312,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Money Earned
+                            {translator.getlang('Money Earned',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -348,7 +349,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            My Rewards
+                            {translator.getlang('My Rewards',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -385,7 +386,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            My Purchase
+                            {translator.getlang('My Purchase',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -422,7 +423,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Preferred Books
+                            {translator.getlang('Preferred Books',auth.user.language)}
                           </Text>
                         </View>
                       </View>
@@ -459,7 +460,7 @@ class WriterAccountScreen extends  Component{
                         </View>
                         <View style={{marginLeft: 20}}>
                           <Text style={styles.optionTxt}>
-                            Logout
+                            {translator.getlang('Logout',auth.user.language)}
                           </Text>
                         </View>
                       </View>

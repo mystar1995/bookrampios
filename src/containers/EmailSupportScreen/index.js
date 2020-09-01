@@ -96,7 +96,7 @@ class EmailSupportScreen extends Component {
             {/* === text === */}
             <View style={styles.decView}>
               <Text style={styles.descText}>
-                Contact Email : {this.props.config.content_server_email}
+               {translate.getlang('Contact Email',auth.user.language)}: {this.props.config.content_server_email}
               </Text>
             </View>
 

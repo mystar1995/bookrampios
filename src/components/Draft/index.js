@@ -14,6 +14,7 @@ import {connect} from 'react-redux';
 import config from '../../config/config';
 import Moment from 'moment';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 class Draft extends Component {
   constructor(props){

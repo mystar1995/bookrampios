@@ -27,6 +27,7 @@ import colors from '../../utils/colors';
 import {connect} from 'react-redux';
 import config from '../../config/config';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 class WriterHomeScreen extends  Component{
   constructor(props){
@@ -78,7 +79,7 @@ class WriterHomeScreen extends  Component{
       isModalOpen
     } = this.state
 
-    let {home,mycontent} = this.props;
+    let {home,mycontent,auth} = this.props;
     console.log('sold',home.sold);
     return (
       <View style={styles.screenContainer}>
@@ -106,7 +107,7 @@ class WriterHomeScreen extends  Component{
             </TouchableOpacity>
             <View>
               <Text style={styles.headerText}>
-                Welcome User
+                {translator.getlang('Welcome User',auth.user.language)}
               </Text>
             </View>
             
@@ -148,7 +149,7 @@ class WriterHomeScreen extends  Component{
                       </View>
                       <View style={styles.subView}>
                         <Text style={styles.subTitleText}>
-                          Published
+                          {translator.getlang('Published',auth.user.language)}
                         </Text>
                       </View>
                     </TouchableOpacity>
@@ -159,12 +160,12 @@ class WriterHomeScreen extends  Component{
                       activeOpacity={0.8}>
                       <View style={styles.countView}>
                         <Text style={styles.titleText}>
-                          {home.download?home.download.length:0}
+                          {mycontent.length}
                         </Text>
                       </View>
                       <View style={styles.subView}>
                         <Text style={styles.subTitleText}>
-                          Downloaded
+                          {translator.getlang('Downloaded',auth.user.language)}
                         </Text>
                       </View>
                     </TouchableOpacity>
@@ -181,7 +182,7 @@ class WriterHomeScreen extends  Component{
                       </View>
                       <View style={styles.subView}>
                         <Text style={styles.subTitleText}>
-                          Book ratings and reviews
+                          {translator.getlang('Book ratings and reviews',auth.user.language)}
                         </Text>
                       </View>
                     </TouchableOpacity>
@@ -200,7 +201,7 @@ class WriterHomeScreen extends  Component{
                       </View>
                       <View style={styles.subView}>
                         <Text style={styles.subTitleText}>
-                          Sold
+                          {translator.getlang('Sold',auth.user.language)}
                         </Text>
                       </View>
                     </TouchableOpacity>
@@ -223,11 +224,10 @@ class WriterHomeScreen extends  Component{
                       </View>
                       <View style={styles.subView}>
                         <Text style={styles.subTitleText}>
-                          Over all ratings
+                          {translator.getlang('Over all rating',auth.user.language)}
                         </Text>
                       </View>
                     </TouchableOpacity>
-                    <View></View>
                     <View/>
                   </View>
                 </View>
@@ -241,7 +241,7 @@ class WriterHomeScreen extends  Component{
                       <View style={styles.headingView}>
                         <View>
                           <Text style={styles.headingText}>
-                            Continue Writing
+                            {translator.getlang('Continue Writing',auth.user.language)}
                           </Text>
                         </View>
                         {/* <TouchableHighlight 
@@ -289,7 +289,7 @@ class WriterHomeScreen extends  Component{
                 <View style={styles.headingView}>
                   <View>
                     <Text style={styles.headingText}>
-                      Most Read
+                      {translator.getlang('Most Read',auth.user.language)}
                     </Text>
                   </View>
                   {/* <TouchableHighlight 
@@ -361,7 +361,7 @@ class WriterHomeScreen extends  Component{
               activeOpacity={0.8} 
               style={styles.modalButton}>
               <Text style={styles.modalText}>
-                Write a new book
+                {translator.getlang('Write a new book',auth.user.language)}
               </Text>
             </TouchableOpacity>
             {/* //==== Upload a book === */}
@@ -375,7 +375,7 @@ class WriterHomeScreen extends  Component{
               activeOpacity={0.8} 
               style={{...styles.modalButton,borderBottomWidth: 0,}}>
               <Text style={styles.modalText}>
-                Upload a book
+                {translator.getlang('Upload a book',auth.user.language)}
               </Text>
             </TouchableOpacity>
           </View>

@@ -12,6 +12,7 @@ import styles from './styles';
 import {connect} from 'react-redux';
 import * as actiontype from '../../constant/action-type';
 import config from '../../config/config';
+import * as translator from '../../utils/translate';
 
 function WriterSideBar(props) {
   const logoutscreen = () => {
@@ -50,7 +51,7 @@ function WriterSideBar(props) {
         <View style={styles.mainList}>
           {/* Home */}
           <TouchableOpacity
-            onPress={()=>{props.navigation.navigate('WriterMain')}} 
+            onPress={()=>{props.navigation.navigate('WriterMain',{index:0})}} 
             style={styles.rowContainer}
             activeOpacity={0.8}>
               <View style={styles.sideIcon}>
@@ -61,7 +62,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  Home
+                  {translator.getlang('Home',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -78,7 +79,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  My Books
+                  {translator.getlang('My Books',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -95,7 +96,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  Categories
+                  {translator.getlang('Categories',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -112,7 +113,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  My Wishes
+                  {translator.getlang('My Wish list',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -163,7 +164,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  My Account
+                  {translator.getlang('My Account',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -197,7 +198,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  Language Preference
+                  {translator.getlang('Language Preference',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -215,7 +216,7 @@ function WriterSideBar(props) {
                 </View>
                 <View style={styles.listContainer}>
                   <Text style={styles.listText}>
-                    Notification
+                    {translator.getlang('Notification',user.language)}
                   </Text>
                 </View>
             </TouchableOpacity>
@@ -239,7 +240,7 @@ function WriterSideBar(props) {
               </View>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  Support
+                  {translator.getlang('Support',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>
@@ -257,7 +258,7 @@ function WriterSideBar(props) {
           </View>
           <View style={styles.listContainer}>
             <Text style={styles.listText}>
-              Logout
+              {translator.getlang('Logout',user.language)}
             </Text>
           </View>
         </TouchableOpacity>

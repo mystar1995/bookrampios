@@ -30,6 +30,7 @@ import Modal from 'react-native-modal';
 import {connect} from 'react-redux';
 import config from '../../config/config';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 
 class MyBooksInReview extends  Component{
   constructor(props){
@@ -82,7 +83,7 @@ class MyBooksInReview extends  Component{
       value: 'No',
     }];
 
-    let {home} = this.props;
+    let {home,auth} = this.props;
     return (
       <View style={styles.screenContainer}>
         <StatusBar 
@@ -109,7 +110,9 @@ class MyBooksInReview extends  Component{
             </TouchableOpacity>
             <View>
               <Text style={styles.headerText}>
-                My Books In Review
+                {
+                  translator.getlang("My Books In Review",auth.user.language)
+                }
               </Text>
             </View>
             
@@ -163,7 +166,7 @@ class MyBooksInReview extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Author:
+                          {translator.getlang('Author',auth.user.language)}:
                         </Text>
                       </View>
                       <TouchableOpacity 
@@ -179,12 +182,12 @@ class MyBooksInReview extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Format:
+                          {translator.getlang('Format',auth.user.language)}:
                         </Text>
                       </View>
                       <View style={styles.normalView}>
                         <Text style={styles.subheadingText}>
-                          e-books
+                          {translator.getlang('e-books',auth.user.language)}:
                         </Text>
                       </View>
                     </View>
@@ -192,7 +195,7 @@ class MyBooksInReview extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Language:
+                          {translator.getlang('Language',auth.user.language)}:
                         </Text>
                       </View>
                       <View style={styles.normalView}>
@@ -205,7 +208,7 @@ class MyBooksInReview extends  Component{
                     <View style={styles.rowContainer3}>
                       <View>
                         <Text style={styles.subheadingText}>
-                          Category:
+                          {translator.getlang('Category',auth.user.language)}:
                         </Text>
                       </View>
                       <View style={styles.normalView}>
@@ -242,7 +245,7 @@ class MyBooksInReview extends  Component{
                         <View style={styles.rowContainer3}>
                           <View>
                             <Text style={styles.subheadingText}>
-                              Review:
+                              {translator.getlang('Review',auth.user.language)}:
                             </Text>
                           </View>
                           <TouchableOpacity
@@ -263,7 +266,7 @@ class MyBooksInReview extends  Component{
                         onPress={()=>{this.selectbook(item.id)}}
                         >
                         <Text style={styles.readMoreText}>
-                          READ
+                          {translator.getlang('READ',auth.user.language)}:
                         </Text>
                       </TouchableOpacity>
                     </View>
@@ -293,7 +296,7 @@ class MyBooksInReview extends  Component{
                 activeOpacity={0.8} 
                 style={styles.modalButton}>
                 <Text style={styles.modalText}>
-                  Write a new book
+                  {translator.getlang('Write a new book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
               {/* //==== Upload a book === */}
@@ -305,9 +308,9 @@ class MyBooksInReview extends  Component{
                   this.props.navigation.navigate('NewStory')
                 }}
                 activeOpacity={0.8} 
-                style={{...styles.modalButton,borderBottomWidth: 0,}}>
+                style={{...styles.modalButton,borderBottomWidth: 0}}>
                 <Text style={styles.modalText}>
-                  Upload a book
+                  {translator.getlang('Upload a book',auth.user.language)}
                 </Text>
               </TouchableOpacity>
             </View>

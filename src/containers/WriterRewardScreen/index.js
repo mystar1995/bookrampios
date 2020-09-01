@@ -35,6 +35,7 @@ import config from '../../config/config';
 import Paypal from 'react-native-paypal-wrapper';
 import * as actiontype from '../../constant/action-type';
 import Alert from '../../components/Alert';
+import * as translator from '../../utils/translate';
 
 class MyRewardsScreen extends  Component{
   constructor(props){
@@ -214,7 +215,7 @@ class MyRewardsScreen extends  Component{
                 </TouchableOpacity>
                 <View>
                   <Text style={styles.headerText}>
-                    Money Earned
+                    {translator.getlang('Money Earned',auth.user.language)}
                   </Text>
                 </View>
 
@@ -246,12 +247,12 @@ class MyRewardsScreen extends  Component{
               {/* //=== subtitle === */}
               <View style={{...styles.alineCenter,marginTop: 5}}>
                 <Text style={styles.subTxt}>
-                  Rewards points Balance
+                  {translator.getlang('Rewards points Balance',auth.user.language)}
                 </Text>
               </View>
               <View style={{...styles.alineCenter,marginTop:10}}>
                 <TouchableOpacity style={styles.button} onPress={()=>this.setState({buyreward:true})}>
-                  <Text style={styles.buttontext}>Payment Settlement</Text>
+                  <Text style={styles.buttontext}>{translator.getlang('Payment Settlement',auth.user.language)}</Text>
                 </TouchableOpacity>
               </View>
               {/* === earn === */}
@@ -272,7 +273,7 @@ class MyRewardsScreen extends  Component{
                   {/* //===head count === */}
                   <View>
                     <Text style={styles.descTxt}>
-                      Total earned
+                      {translator.getlang('Total earned',auth.user.language)}
                     </Text>
                   </View>
                   {/* //===count === */}
@@ -287,7 +288,7 @@ class MyRewardsScreen extends  Component{
                   {/* //===head count === */}
                   <View>
                     <Text style={styles.descTxt}>
-                      Total Settled
+                      {translator.getlang('Total Settled',auth.user.language)}
                     </Text>
                   </View>
                   {/* //===count === */}
@@ -321,7 +322,7 @@ class MyRewardsScreen extends  Component{
                       ...styles.tabTxt,
                       color: isActive===1? colors.submitColor : colors.primary
                     }}>
-                      Earned
+                      {translator.getlang('Earned',auth.user.language)}
                     </Text>
                 </TouchableOpacity>
                 {/* === burned === */}
@@ -338,7 +339,7 @@ class MyRewardsScreen extends  Component{
                       ...styles.tabTxt,
                       color: isActive===2? colors.submitColor : colors.primary
                     }}>
-                      Settled
+                      {translator.getlang('Settled',auth.user.language)}
                     </Text>
                 </TouchableOpacity>
               </View>

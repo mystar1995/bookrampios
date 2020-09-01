@@ -35,7 +35,7 @@ import config from '../../config/config';
 import Paypal from 'react-native-paypal-wrapper';
 import * as actiontype from '../../constant/action-type';
 import Alert from '../../components/Alert';
-
+import * as translator from '../../utils/translate'
 class WriterRewardsScreen extends  Component{
   constructor(props){
     super(props)
@@ -187,7 +187,7 @@ class WriterRewardsScreen extends  Component{
                 </TouchableOpacity>
                 <View>
                   <Text style={styles.headerText}>
-                    My Rewards
+                    {translator.getlang('My Rewards',auth.user.language)}
                   </Text>
                 </View>
 
@@ -200,7 +200,7 @@ class WriterRewardsScreen extends  Component{
               <View style={[styles.rowContainer2,styles.alineCenter]}>
                 <View>
                   <Text style={styles.pointTxt}>
-                    {auth.user.rewards} Points
+                    {auth.user.rewards} {translator.getlang('Points',auth.user.language)}
                   </Text>
                 </View>
                 {/* === / === */}
@@ -219,12 +219,12 @@ class WriterRewardsScreen extends  Component{
               {/* //=== subtitle === */}
               <View style={{...styles.alineCenter,marginTop: 5}}>
                 <Text style={styles.subTxt}>
-                  Rewards points Balance
+                  {translator.getlang('Rewards points Balance',auth.user.language)}
                 </Text>
               </View>
               <View style={{...styles.alineCenter,marginTop:10}}>
                 <TouchableOpacity style={styles.button} onPress={()=>this.setState({buyreward:true})}>
-                  <Text style={styles.buttontext}>Buy Rewards</Text>
+                  <Text style={styles.buttontext}>{translator.getlang('Buy Rewards',auth.user.language)}</Text>
                 </TouchableOpacity>
               </View>
               {/* === earn === */}
@@ -245,7 +245,7 @@ class WriterRewardsScreen extends  Component{
                   {/* //===head count === */}
                   <View>
                     <Text style={styles.descTxt}>
-                      Total earned
+                      {translator.getlang('Total earned',auth.user.language)}
                     </Text>
                   </View>
                   {/* //===count === */}
@@ -260,7 +260,7 @@ class WriterRewardsScreen extends  Component{
                   {/* //===head count === */}
                   <View>
                     <Text style={styles.descTxt}>
-                      Total burned
+                      {translator.getlang('Total burned',auth.user.language)}
                     </Text>
                   </View>
                   {/* //===count === */}
@@ -294,7 +294,7 @@ class WriterRewardsScreen extends  Component{
                       ...styles.tabTxt,
                       color: isActive===1? colors.submitColor : colors.primary
                     }}>
-                      Earned
+                      {translator.getlang('Earned',auth.user.language)}
                     </Text>
                 </TouchableOpacity>
                 {/* === burned === */}
@@ -311,7 +311,7 @@ class WriterRewardsScreen extends  Component{
                       ...styles.tabTxt,
                       color: isActive===2? colors.submitColor : colors.primary
                     }}>
-                      Burned
+                      {translator.getlang('Burned',auth.user.language)}
                     </Text>
                 </TouchableOpacity>
               </View>
@@ -320,7 +320,7 @@ class WriterRewardsScreen extends  Component{
                 <View/>
                 <View>
                   <Text style={styles.opTxt}>
-                    Points
+                    {translator.getlang('Points',auth.user.language)}
                   </Text>
                 </View>
               </View>
@@ -337,7 +337,7 @@ class WriterRewardsScreen extends  Component{
                     </View>
                     <View>
                       <Text style={styles.opTxt}>
-                        {row.rewards} Points
+                        {row.rewards} {translator.getlang('Points',auth.user.language)}
                       </Text>
                     </View>
                   </View>
@@ -388,11 +388,11 @@ class WriterRewardsScreen extends  Component{
                   ]}>
                     <View style={styles.swiperContainer}>
                       <View style={{flexDirection:'row'}}>
-                        <Text style={styles.rewardtext}>Amount : </Text>
+                        <Text style={styles.rewardtext}>{translator.getlang('Amount',auth.user.language)} : </Text>
                         <Text style={styles.rewardtext}>$ {this.state.rewards * config.purchase_points / 100}</Text>
                       </View>
                       <View style={{flexDirection:'row',marginTop:20,alignItems:'center'}}>
-                        <Text style={styles.rewardtext}>Rewards : </Text>
+                        <Text style={styles.rewardtext}>{translator.getlang('Rewards',auth.user.language)} : </Text>
                         <View style={styles.input}>
                           <TextInput style={styles.input} keyboardType="number-pad" onChangeText={(val)=>this.setState({rewards:val})} defaultValue={this.state.rewards}></TextInput>
                         </View>
@@ -405,7 +405,7 @@ class WriterRewardsScreen extends  Component{
                         onPress={() => this.setState({buyreward:false})}
                         style={styles.cancelButton}>
                         <Text style={styles.submitText}>
-                            CANCEL
+                            {translator.getlang('Cancel',auth.user.language)}
                         </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
@@ -413,7 +413,7 @@ class WriterRewardsScreen extends  Component{
                         onPress={this.pay}
                         style={styles.submitButton}>
                         <Text style={styles.submitText}>
-                            SUBMIT
+                            {translator.getlang('SUBMIT',auth.user.language)}
                         </Text>
                     </TouchableOpacity>
                   </View>

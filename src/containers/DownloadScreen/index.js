@@ -179,7 +179,7 @@ class DownloadScreen extends  Component{
                         onPress={()=>this.selectbook(item.id)}  
                         style={styles.bookImageStyle1}>
                       <Image
-                        source={{uri:config.fileurl + item.cover_image}}
+                        source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
                         style={styles.imageStyle}
                       />
                     </TouchableOpacity>
