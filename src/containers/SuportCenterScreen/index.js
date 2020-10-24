@@ -85,7 +85,16 @@ class SuportCenterScreen extends Component {
                     {translator.getlang('Support Center',auth.user.language)}
                   </Text>
                 </View>
-                <View/>
+                <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.backIcon}
+                onPress={()=>{this.props.navigation.goBack()}}
+                >
+                <Image
+                style={styles.imageStyle}
+                source={require('../../assets/icons/backArrow.png')}
+                />
+                </TouchableOpacity>
               </View>
               </ImageBackground>
               {/* === main content === */}

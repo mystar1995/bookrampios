@@ -40,7 +40,6 @@ class SignupScreen extends Component {
     super(props)
     this.state={
       name: '',
-      ageGroup: '',
       dob: '',
       email: '',
       password: '',
@@ -103,15 +102,14 @@ class SignupScreen extends Component {
       country:this.state.country,
       city:this.state.city,
       phone_number:this.state.areaCode + "" + this.state.mobileNumber,
-      terms_n_condition:this.state.isChecked?'on':'off',
-      age_group:this.state.ageGroup
+      terms_n_condition:this.state.isChecked?'on':'off'
     }
 
     console.log(this.checkvalidation(user));
     if(this.checkvalidation(user) && this.state.isChecked)
     {
       user.writer = this.state.asWrite == 'Yes'?true:false;
-      dispatch({type:actiontype.SIGNUP_START,user:user,login:()=>{this.props.navigation.navigate('Verify',{phone:user.phone_number})}})
+      dispatch({type:actiontype.SIGNUP_START,user:user,login:()=>{this.props.navigation.navigate('Login',{phone:user.phone_number})}})
     }
   }
 
@@ -141,6 +139,8 @@ class SignupScreen extends Component {
       dispatch({type:actiontype.SIGNUP_ERROR,error:error});
     }
     
+
+    console.log(error);
     return error.length == 0;
     
   }
@@ -647,7 +647,7 @@ class SignupScreen extends Component {
           {datePickerOpen &&
             <View style={styles.datePicker}>
               <DateTimePicker 
-                value={dob? dob : new Date()}
+                value={dob? dob : new Date('1980-01-01')}
                 mode={'date'}
                 display='calendar'
                 is24Hour={true}

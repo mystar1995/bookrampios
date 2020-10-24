@@ -44,11 +44,15 @@ export default StyleSheet.create({
     height: '100%',
     resizeMode: 'stretch'
   },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
+  },
   headerText:{
     fontSize: resonsiveText(20),
     color: colors.primary,
     fontWeight: 'bold',
-    marginRight: 35,
     fontFamily:'Quicksand-Regular'
   },
   mainContainer:{
@@ -56,7 +60,6 @@ export default StyleSheet.create({
     padding: 20,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
-    marginTop: -20,
     paddingTop: 0,
     backgroundColor: colors.circleColor,
   },

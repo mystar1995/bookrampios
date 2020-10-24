@@ -196,13 +196,48 @@ class SearchScreen extends  Component{
     dispatch({type:actiontype.DELETE_WISHLIST,contentid:id,token:auth.token});
   }
   
-  read = (id) => {
-    const {dispatch,auth} = this.props;
-    dispatch({type:actiontype.SELECT_FREE_BOOKS,contentid:id,token:auth.token,next:()=>this.props.navigation.navigate('Bookmark')})
+  read = (content) => {
+    const {dispatch,auth}= this.props;
+    if(this.is_freebook(content))
+    {
+      if(this.is_freebook(content) == 'purchased')
+      {
+        dispatch({type:actiontype.SELECT_BOOK,token:auth.token,id:content.id,next:()=>this.props.navigation.navigate('ReadBook')});
+      }
+      else
+      {
+        dispatch({type:actiontype.SELECT_FREE_BOOKS,contentid:content.id,token:auth.token,next:()=>this.props.navigation.navigate('Bookmark')});
+      }
+    }
+    else
+    {
+      dispatch({type:actiontype.SELECT_BOOK_INFO,id:content.id,token:auth.token,next:()=>this.props.navigation.navigate('BookDetails')})
+    }
+    
   }
 
   next = () => {
     this.props.navigation.navigate('Bookmark')
+  }
+
+  is_freebook = (content) => {
+    let {mycontent,config}  = this.props;
+    for(let item in mycontent)
+    {
+      if(mycontent[item].id == content.id)
+      {
+        return 'purchased';
+      }
+    }
+
+    console.log('authorrewards',content.authorrewards);
+    console.log('purchase_points',config.purchase_points);
+    if(Number(content.authorrewards) < Number(config.purchase_points))
+    {
+      return 'freebook';
+    }
+
+    return false;
   }
 
   selectauthorinfo = (id) => {
@@ -305,7 +340,16 @@ class SearchScreen extends  Component{
               </Text>
             </View>
             
-            <View/>
+            <TouchableOpacity
+            activeOpacity={0.8}
+            style={styles.backIcon}
+            onPress={()=>{this.props.navigation.goBack()}}
+            >
+            <Image
+            style={styles.imageStyle}
+            source={require('../../assets/icons/backArrow.png')}
+            />
+            </TouchableOpacity>
           </View>
           {/* //==== content ===  */}
           <View style={styles.contentView}>
@@ -475,7 +519,7 @@ class SearchScreen extends  Component{
                               <TouchableOpacity 
                                 style={styles.readmoreButton}
                                 activeOpacity={0.8}
-                                onPress={()=>{this.read(item.id)}}
+                                onPress={()=>{this.read(item)}}
                                 >
                                 <Text style={styles.readMoreText}>
                                   {translator.getlang('Read',auth.user.language)}
@@ -518,7 +562,9 @@ const mapstatetoprops = (state) => ({
   content:state.content.content,
   wishlist:state.wishlist,
   purchase:state.content.purchase,
-  keywords:state.content.keywords
+  keywords:state.content.keywords,
+  mycontent:state.content.mycontent,
+  config:state.config
 })
 
 //===  make components available outside ===

@@ -84,13 +84,18 @@ class BookDetailScreen extends  Component{
   }
 
   getcontentpurchased = (contentid) => {
-    const {purchased} = this.props;
+    const {purchased,bookinfo,config} = this.props;
     for(let item in purchased)
     { 
       if(purchased[item].id == contentid)
       {
         return true;
       }
+    }
+
+    if(bookinfo.authorrewards < config.purchase_points)
+    {
+      return true;
     }
 
     return false;
@@ -106,7 +111,7 @@ addtowishlist = () => {
   }
 
   checkwishlist = () => {
-    const {wishlist,bookinfo} = this.props;
+    const {wishlist,bookinfo,config} = this.props
     for(let item in wishlist)
     {
       if(wishlist[item].content_id == bookinfo.id)
@@ -114,6 +119,8 @@ addtowishlist = () => {
         return true;
       }
     }
+
+    console.log('config',config.purchase_points);
 
     return false;
   }
@@ -183,8 +190,16 @@ addtowishlist = () => {
                 {translate.getlang("Book Details",auth.user.language)}
                 </Text>
               </View>
-              
-              <View/>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.backIcon}
+                onPress={()=>{this.props.navigation.goBack()}}
+              >
+              <Image
+                style={styles.imageStyle}
+                source={require('../../assets/icons/backArrow.png')}
+              />
+              </TouchableOpacity>
             </View>
           </ImageBackground>
             {/* === main content === */}
@@ -351,6 +366,14 @@ addtowishlist = () => {
                     {this.getcontentpurchased(bookinfo.id)?'Read':"Add to Cart"}
                   </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.8}
+                  onPress={this.wishlistaction} 
+                  style={{...styles.cartButton,backgroundColor:this.checkwishlist()?colors.redColor:colors.submitColor,marginTop:10}}>
+                  <Text style={styles.cartText}>
+                    {this.checkwishlist()?'Delete Wishlist':"Add to Wishlist"}
+                  </Text>
+                </TouchableOpacity>
               </ScrollView>
           </View>
         </View>
@@ -362,7 +385,9 @@ addtowishlist = () => {
 const mapstatetoprops = (state) => ({
   bookinfo:state.bookinfo,
   auth:state.auth,
-  purchased:state.content.purchase
+  purchased:state.content.purchase,
+  wishlist:state.wishlist,
+  config:state.config
 })
 
 //===  make components available outside ===

@@ -112,6 +112,9 @@ export const ADD_SETTLEMENT = "ADD_SETTLEMENT";
 export const SET_SETTLEMENT = "SET_SETTLEMENT";
 export const SET_EARNED = "SET_EARNED";
 
+//switch user
+export const SWITCH_USER = "SWITCH_USER";
+
 
 
 

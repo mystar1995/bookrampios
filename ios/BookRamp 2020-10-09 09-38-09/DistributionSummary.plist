@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BookRamp.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>45F0170DFC5691D1257A19897721D82DEFA2801C</string>
+				<key>dateExpires</key>
+				<string>7/12/21</string>
+				<key>type</key>
+				<string>Apple Development</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>45F0170DFC5691D1257A19897721D82DEFA2801C</string>
+						<key>dateExpires</key>
+						<string>7/12/21</string>
+						<key>type</key>
+						<string>Apple Development</string>
+					</dict>
+					<key>name</key>
+					<string>PDFNet.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y75EZKX488</string>
+						<key>name</key>
+						<string>heiDesign pty ltd</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>45F0170DFC5691D1257A19897721D82DEFA2801C</string>
+						<key>dateExpires</key>
+						<string>7/12/21</string>
+						<key>type</key>
+						<string>Apple Development</string>
+					</dict>
+					<key>name</key>
+					<string>Tools.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>Y75EZKX488</string>
+						<key>name</key>
+						<string>heiDesign pty ltd</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>Y75EZKX488.Y75EZKX488.com.app.bookramp</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>Y75EZKX488</string>
+				<key>get-task-allow</key>
+				<true/>
+			</dict>
+			<key>name</key>
+			<string>BookRamp.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>7748cd23-23fa-414c-b57f-1a92768ffef6</string>
+				<key>name</key>
+				<string>iOS Team Provisioning Profile: *</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>Y75EZKX488</string>
+				<key>name</key>
+				<string>heiDesign pty ltd</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

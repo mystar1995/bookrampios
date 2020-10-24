@@ -29,11 +29,16 @@ export default StyleSheet.create({
         fontSize:ScreenWidth/30,
         color:'white'
     },  
+    backIcon:{
+        height: 33,
+        width: 33,
+        padding: 3,
+      },
     headerContainer: {
         width: '100%',
         justifyContent: 'space-between',
         flexDirection: 'row',
-        paddingHorizontal: 20,
+        paddingHorizontal: 0,
         paddingBottom: 25,
         paddingTop: 10,
     },
@@ -57,7 +62,6 @@ export default StyleSheet.create({
         fontSize: resonsiveText(20),
         color: colors.primary,
         fontWeight: 'bold',
-        marginRight: 35,
         marginTop : 4,
         fontFamily:'Quicksand-Regular'
     },

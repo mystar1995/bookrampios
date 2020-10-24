@@ -34,6 +34,11 @@ export default StyleSheet.create({
     height: 35,
     width: 35,
   },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
+  },
   imageStyle:{
     width: '100%',
     height: '100%',
@@ -62,7 +67,6 @@ export default StyleSheet.create({
     fontSize: resonsiveText(20),
     color: colors.primary,
     fontWeight: 'bold',
-    marginRight: 35,
     fontFamily:'Quicksand-Regular'
   },
   mainContainer:{

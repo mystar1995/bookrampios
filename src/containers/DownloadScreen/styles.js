@@ -30,6 +30,7 @@ export default StyleSheet.create({
     paddingTop: 10,
     //paddingTop: 5,
   },
+
   menuIcon:{
     height: 35,
     width: 35,
@@ -47,8 +48,12 @@ export default StyleSheet.create({
   headerText:{
     fontSize: resonsiveText(20),
     color: colors.primary,
-    fontWeight: 'bold',
-    marginRight: 35
+    fontWeight: 'bold'
+  },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
   },
   contentView:{
     width :'100%',

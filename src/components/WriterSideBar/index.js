@@ -25,6 +25,13 @@ function WriterSideBar(props) {
     dispatch({type:actiontype.AUTH_LOGOUT,token:token,logout:logoutscreen});
   }
 
+  const switchuser = () => {
+    const {dispatch,token} = props;
+
+    dispatch({type:actiontype.SWITCH_USER,token:token,next:()=>props.navigation.navigate('ReaderMain'),role:"reader"})
+  }
+
+
   const {notification,user} = props;
   return (
     <View style={styles.sideBarContainer}>
@@ -244,7 +251,21 @@ function WriterSideBar(props) {
                 </Text>
               </View>
           </TouchableOpacity>
+
+          {/* Contribute */}
+
+          <TouchableOpacity
+            onPress={switchuser}
+            style={styles.rowContainer}
+            activeOpacity={0.8}>
+              <View style={styles.listContainer}>
+                <Text style={styles.listText}>
+                  {translator.getlang('Contribute as Reader',user.language)}
+                </Text>
+              </View>
+          </TouchableOpacity>
         </View>
+        
         {/* === logout === */}
         <TouchableOpacity 
           onPress={logout}

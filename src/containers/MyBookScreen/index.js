@@ -70,7 +70,7 @@ class MyBookScreen extends  Component{
   selectfreebooks = (contentid) => {
     console.log(contentid);
     const {dispatch,auth} = this.props;
-    dispatch({type:actiontype.SELECT_FREE_BOOKS,token:auth.token,contentid:contentid,next:this.next});
+    dispatch({type:actiontype.SELECT_BOOK,token:auth.token,id:contentid,next:this.next});
   }
 
   navigate = () => {
@@ -78,7 +78,7 @@ class MyBookScreen extends  Component{
   }
 
   next = () => {
-    this.props.navigation.navigate('Bookmark')
+    this.props.navigation.navigate('ReadBook')
   }
 
   selectauthorinfo = (id) => {

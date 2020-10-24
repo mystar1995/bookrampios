@@ -66,7 +66,7 @@ class PhoneSupportScreen extends Component {
   }
 
   render() {
-    let {config} = this.props;
+    let {config,auth} = this.props;
     return (
       <View style={styles.screenContainer}>
         <StatusBar

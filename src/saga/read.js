@@ -8,6 +8,7 @@ export function* select_book()
     yield takeEvery(actiontype.SELECT_BOOK,function*(payload){
         let token = payload.token;
         let id = payload.id;
+        
         try
         {
             let content = yield call(StoryService.get_content_by_id,token,id,1);

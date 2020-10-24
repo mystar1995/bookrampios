@@ -252,8 +252,10 @@ class MyProfileScreen extends  Component{
       value: 'Female',label:"Female"
     },];
 
+    let {auth} = this.props;
     
     return (
+      <>
       <KeyboardAwareScrollView
         scrollEnabled
         bounces={false}
@@ -288,7 +290,16 @@ class MyProfileScreen extends  Component{
                   My Profile
                 </Text>
               </View>
-              <View style={{width:35}}></View>
+              <TouchableOpacity
+              activeOpacity={0.8}
+              style={styles.backIcon}
+              onPress={()=>{this.props.navigation.goBack()}}
+              >
+              <Image
+              style={styles.imageStyle}
+              source={require('../../assets/icons/backArrow.png')}
+              />
+              </TouchableOpacity>
               <View/>
             </View>
             {/* //=== profile === */}
@@ -677,29 +688,31 @@ class MyProfileScreen extends  Component{
           </View>
         </View>
         <Alert alert={this.state.alert}></Alert>
-        {Platform.OS==='ios' && isDatePickerOpen &&
-            <TouchableOpacity 
-              style={styles.doneButton}
-              activeOpacity={0.8}
-              onPress={()=>{this.setState({isDatePickerOpen: false})}}>
-              <Text style={styles.doneText}>
-                Done
-              </Text>
-            </TouchableOpacity>
-          }
-          {isDatePickerOpen &&
-            <View style={styles.datePicker}>
-              <DateTimePicker 
-                value={dob? new Date(dob) : new Date()}
-                mode={'date'}
-                display='calendar'
-                is24Hour={true}
-                style={styles.datePicker}
-                onChange={this.setDate} 
-              />
-            </View>
-          }
+       
       </KeyboardAwareScrollView>
+        {Platform.OS==='ios' && isDatePickerOpen &&
+              <TouchableOpacity 
+                style={styles.doneButton}
+                activeOpacity={0.8}
+                onPress={()=>{this.setState({isDatePickerOpen: false})}}>
+                <Text style={styles.doneText}>
+                  Done
+                </Text>
+              </TouchableOpacity>
+            }
+            {isDatePickerOpen &&
+              <View style={styles.datePicker}>
+                <DateTimePicker 
+                  value={dob? new Date(dob) : new Date('1980-01-01')}
+                  mode={'date'}
+                  display='calendar'
+                  is24Hour={true}
+                  style={styles.datePicker}
+                  onChange={this.setDate} 
+                />
+              </View>
+            }
+      </>
     );
   }
 }

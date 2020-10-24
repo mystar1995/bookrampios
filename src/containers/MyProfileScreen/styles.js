@@ -200,12 +200,12 @@ export default StyleSheet.create({
     width: ScreenWidth,
     height: 200,
     position: 'absolute',
-    bottom: 100,
+    bottom: 50,
     backgroundColor: colors.primary
   },
   doneButton:{
     position: 'absolute',
-    bottom: 400,
+    bottom: 300,
     right: 0,
     padding: 10,
   },
@@ -219,4 +219,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
+  }
 })

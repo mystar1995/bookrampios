@@ -61,8 +61,8 @@ class Navigations extends Component {
 					}}>
 					
 					<Stack.Screen
-						name="Splash"
-						component={SplashScreen}
+						name="Login"
+						component={LoginScreen}
 					/>
 					<Stack.Screen
 						name="ReaderMain"
@@ -71,10 +71,6 @@ class Navigations extends Component {
 					<Stack.Screen
 						name="WriterMain"
 						component={WriterMainScreen}
-					/>
-					<Stack.Screen
-						name="Login"
-						component={LoginScreen}
 					/>
 					<Stack.Screen
 						name="Signup"

@@ -31,6 +31,11 @@ export default StyleSheet.create({
     paddingTop: 5,
     paddingHorizontal: 20,
   },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
+  },
   menuIcon:{
     height: 35,
     width: 35,

@@ -126,7 +126,16 @@ class HowJounreyScreen extends  Component{
                   source={require('../../assets/icons/toggle.png')}
                 />
               </TouchableOpacity>
-
+              <TouchableOpacity
+              activeOpacity={0.8}
+              style={styles.backIcon}
+              onPress={()=>{this.props.navigation.goBack()}}
+              >
+              <Image
+              style={styles.imageStyle}
+              source={require('../../assets/icons/backArrow.png')}
+              />
+              </TouchableOpacity>
             </View>
           </ImageBackground>
           <View style={styles.mainContainer}>

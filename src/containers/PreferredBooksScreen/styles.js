@@ -22,6 +22,11 @@ export default StyleSheet.create({
     width: '100%',
     height: Platform.OS==='ios'?120: 100,
   },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
+  },
   headerContainer:{
     width: '100%',
     justifyContent: 'space-between',

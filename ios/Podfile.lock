@@ -1,29 +1,8 @@
 PODS:
   - boost-for-react-native (1.63.0)
-  - Braintree (4.19.0):
-    - Braintree/Card (= 4.19.0)
-    - Braintree/Core (= 4.19.0)
-    - Braintree/PayPal (= 4.19.0)
-    - Braintree/UI (= 4.19.0)
-  - Braintree/Card (4.19.0):
-    - Braintree/Core
-  - Braintree/Core (4.19.0)
-  - Braintree/PayPal (4.19.0):
-    - Braintree/Core
-    - Braintree/PayPalOneTouch
-  - Braintree/PayPalDataCollector (4.19.0):
-    - Braintree/Core
-    - Braintree/PayPalUtils
-  - Braintree/PayPalOneTouch (4.19.0):
-    - Braintree/Core
-    - Braintree/PayPalDataCollector
-    - Braintree/PayPalUtils
-  - Braintree/PayPalUtils (4.19.0)
-  - Braintree/UI (4.19.0):
-    - Braintree/Card
-    - Braintree/Core
   - BVLinearGradient (2.5.6):
     - React
+  - CardIO (5.4.1)
   - DoubleConversion (1.1.6)
   - FBLazyVector (0.61.5)
   - FBReactNativeSpec (0.61.5):
@@ -43,7 +22,13 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - PDFNet (7.1.4.75416)
+  - PayPal-iOS-SDK (2.18.1):
+    - PayPal-iOS-SDK/CardIO (= 2.18.1)
+    - PayPal-iOS-SDK/Core (= 2.18.1)
+  - PayPal-iOS-SDK/CardIO (2.18.1):
+    - CardIO (~> 5.4.1)
+  - PayPal-iOS-SDK/Core (2.18.1)
+  - PDFNet (8.0.0.76337)
   - RCTRequired (0.61.5)
   - RCTTypeSafety (0.61.5):
     - FBLazyVector (= 0.61.5)
@@ -260,9 +245,6 @@ PODS:
     - React
   - RNLocalize (1.4.0):
     - React
-  - RNPaypal (2.1.0):
-    - Braintree
-    - React
   - RNPdftron (1.0.0):
     - PDFNet
     - React
@@ -275,13 +257,13 @@ PODS:
   - Yoga (1.14.0)
 
 DEPENDENCIES:
-  - Braintree (~> 4.19.0)
   - BVLinearGradient (from `../node_modules/react-native-linear-gradient`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
   - FBReactNativeSpec (from `../node_modules/react-native/Libraries/FBReactNativeSpec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - PayPal-iOS-SDK
   - PDFNet (from `https://www.pdftron.com/downloads/ios/cocoapods/pdfnet/latest.podspec`)
   - RCTRequired (from `../node_modules/react-native/Libraries/RCTRequired`)
   - RCTTypeSafety (from `../node_modules/react-native/Libraries/TypeSafety`)
@@ -314,7 +296,6 @@ DEPENDENCIES:
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
-  - RNPaypal (from `../node_modules/react-native-paypal/ios`)
   - RNPdftron (from `../node_modules/react-native-pdftron`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -324,7 +305,8 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - boost-for-react-native
-    - Braintree
+    - CardIO
+    - PayPal-iOS-SDK
 
 EXTERNAL SOURCES:
   BVLinearGradient:
@@ -397,8 +379,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNLocalize:
     :path: "../node_modules/react-native-localize"
-  RNPaypal:
-    :path: "../node_modules/react-native-paypal/ios"
   RNPdftron:
     :path: "../node_modules/react-native-pdftron"
   RNReanimated:
@@ -412,14 +392,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  Braintree: 2982ea66c6ef4a22116a9f52210d54e3a9ae74b7
   BVLinearGradient: e3aad03778a456d77928f594a649e96995f1c872
+  CardIO: 56983b39b62f495fc6dae9ad7cf875143df06443
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: aaeaf388755e4f29cd74acbc9e3b8da6d807c37f
   FBReactNativeSpec: 118d0d177724c2d67f08a59136eb29ef5943ec75
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  PDFNet: 8a5a234cc130085f70391148412d5018c502712e
+  PayPal-iOS-SDK: 70d56697aef502c130b9840e31dea5c6b8a350e1
+  PDFNet: acf8657b50175741da816e8e9f4024ff6608dab0
   RCTRequired: b153add4da6e7dbc44aebf93f3cf4fcae392ddf1
   RCTTypeSafety: 9aa1b91d7f9310fc6eadc3cf95126ffe818af320
   React: b6a59ef847b2b40bb6e0180a97d0ca716969ac78
@@ -429,10 +410,10 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
-  react-native-document-picker: 3026780fc04e7ad27534a0f35d5daefb550aa03a
-  react-native-image-picker: 6a850c41f57f0848d918c2a77aedd7aa272ffa30
-  react-native-safe-area-context: e22a8ca00f758273d2408953965cb8db67da7925
-  react-native-webview: 40bbeb6d011226f34cb83f845aeb0fdf515cfc5f
+  react-native-document-picker: 1be88dafddd6565f883df156a7abd08466812e97
+  react-native-image-picker: 668e72d0277dc8c12ae90e835507c1eddd2e4f85
+  react-native-safe-area-context: b26361b9f0a5a17c371a80bb37b88493ea68c77e
+  react-native-webview: 938d49de66f0d5c95134f19682243cbe53294f51
   React-RCTActionSheet: 600b4d10e3aea0913b5a92256d2719c0cdd26d76
   React-RCTAnimation: 791a87558389c80908ed06cc5dfc5e7920dfa360
   React-RCTBlob: d89293cc0236d9cb0933d85e430b0bbe81ad1d72
@@ -444,17 +425,16 @@ SPEC CHECKSUMS:
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNDateTimePicker: bacbf754c3298b061c7eaa0a5352cbb2ede8d5a2
+  RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
+  RNDateTimePicker: aae6a45c4ddb5125f3c7a39683e21c34c25cda45
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
-  RNLocalize: b6df30cc25ae736d37874f9bce13351db2f56796
-  RNPaypal: 73ea067b978fb94debcb33cc5be4515bee7be36e
+  RNLocalize: fc27ee5878ce5a3af73873fb2d8e866e0d1e6d84
   RNPdftron: afce608ba01a16c2a8451115088d3e0e71fc9bf6
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Yoga: f2a7cd4280bfe2cca5a7aed98ba0eb3d1310f18b
 
-PODFILE CHECKSUM: ae9a380b325cd2847d7011aa0116fbd4608149f2
+PODFILE CHECKSUM: bb80f1bb850d4b24d74bbf564892b3cad164f35d
 
 COCOAPODS: 1.9.3

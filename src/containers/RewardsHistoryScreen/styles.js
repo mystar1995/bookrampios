@@ -31,8 +31,9 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
   backIcon:{
-    height: 20,
-    width: 20,
+    height: 33,
+    width: 33,
+    padding: 3,
   },
   imageStyle:{
     width: '100%',

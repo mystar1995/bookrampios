@@ -209,9 +209,11 @@ class WriteNewStoryScreen extends  Component{
     let categoryData = this.getcategorydata();
     
     let languageData = [{
-      label: 'Hindi',value:'ar'
+      label: 'Arabic',value:'ar'
     }, {
       label: 'English',value:'en'
+    },{
+      label: 'Hindi',value:'hi'
     }];
     let ageGroupData = [{
       value: '5',label:'5+'
@@ -264,7 +266,7 @@ class WriteNewStoryScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  {translator.getlang('New Story',auth.user.language)}
+                  {translator.getlang('New Book',auth.user.language)}
                 </Text>
               </View>
               

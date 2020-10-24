@@ -44,10 +44,14 @@ export default StyleSheet.create({
         fontSize: resonsiveText(20),
         color: colors.primary,
         fontWeight: 'bold',
-        marginRight: 35,
         marginTop : 4,
         fontFamily:'Quicksand-Regular'
     },
+    backIcon:{
+        height: 33,
+        width: 33,
+        padding: 3,
+      },
     mainContainer: {
         flex: 1,
         borderTopLeftRadius: 36,

@@ -31,6 +31,7 @@ import * as actiontype from '../../constant/action-type';
 import DocumentPicker from 'react-native-document-picker';
 import config from '../../config/config';
 import Alert from '../../components/Alert';
+import * as translator from '../../utils/translate';
 
 class NewStoryScreen extends  Component{
   constructor(props){
@@ -233,6 +234,8 @@ class NewStoryScreen extends  Component{
       label: 'Arabic',value:'ar'
     }, {
       label: 'English',value:'en'
+    },{
+      label: 'Hindi',value:'hi'
     }];
     let ageGroupData = [{
       value: '5',label:'5+'
@@ -251,6 +254,8 @@ class NewStoryScreen extends  Component{
     },{
       value: '60',label:'60+'
     }];
+
+    let {auth} = this.props;
     return (
       <KeyboardAwareScrollView
         scrollEnabled
@@ -284,7 +289,7 @@ class NewStoryScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  {translator.getlang('New Story',auth.user.language)}
+                  {translator.getlang('New Book',auth.user.language)}
                 </Text>
               </View>
               

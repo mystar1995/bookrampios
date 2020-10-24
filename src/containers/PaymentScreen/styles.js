@@ -39,6 +39,11 @@ export default StyleSheet.create({
     height: '100%',
     resizeMode: 'contain'
   },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
+  },
   imageStyle2:{
     width: '100%',
     height: '100%',

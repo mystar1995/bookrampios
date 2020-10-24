@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		36A1773EA72871F7BF326307 /* libPods-BookRamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4929E2B4582AC1FD5C11986D /* libPods-BookRamp.a */; };
+		6D09401C252FDD89006181AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D09401A252FDD88006181AE /* LaunchScreen.xib */; };
+		6D11FABB253793B800707340 /* libPods-BookRamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D67D42224BF6FF400B1A556 /* libPods-BookRamp.a */; };
 		6D67D3DA24BF5FEF00B1A556 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4181651076BC404DA8E8A68B /* Quicksand-Bold.ttf */; };
 		6D67D3DB24BF5FEF00B1A556 /* Quicksand-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FEED9F25F8294A1BA89C7932 /* Quicksand-Light.ttf */; };
 		6D67D3DC24BF5FEF00B1A556 /* Quicksand-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAD12E31AB1A4265889D4A71 /* Quicksand-Medium.ttf */; };
 		6D67D3DD24BF5FEF00B1A556 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B2291BC3DC904979AC4D4032 /* Quicksand-Regular.ttf */; };
 		6D67D3DE24BF5FEF00B1A556 /* Quicksand-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A04F39C6EE54BF18B65A33D /* Quicksand-SemiBold.ttf */; };
 		6D67D3DF24BF5FEF00B1A556 /* Quicksand-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EECCC9A5C3E141038E0BF539 /* Quicksand-VariableFont_wght.ttf */; };
+		6DD2A6472536D9FE0024C443 /* libRNPaypalWrapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DF29FD5253616C900D4F758 /* libRNPaypalWrapper.a */; };
+		A29558B105155F533005D08B /* libPods-BookRamp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4929E2B4582AC1FD5C11986D /* libPods-BookRamp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -266,13 +268,6 @@
 			remoteGlobalIDString = 15912309AA610251329D74FA111DE5CA;
 			remoteInfo = RNLocalize;
 		};
-		6D67D45724BF6FF400B1A556 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6D67D3E024BF6FF300B1A556 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 2B35C9AD09B30C01D30844EB609B7111;
-			remoteInfo = RNPaypal;
-		};
 		6D67D45924BF6FF400B1A556 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6D67D3E024BF6FF300B1A556 /* Pods.xcodeproj */;
@@ -308,6 +303,13 @@
 			remoteGlobalIDString = 65D0A19C165FA1126B1360680FE6DB12;
 			remoteInfo = Yoga;
 		};
+		6DF29FD4253616C900D4F758 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7599B7E2A8724E2D89051CE7 /* RNPaypalWrapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNPaypalWrapper;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -333,7 +335,6 @@
 		13B07F961A680F5B00A75B9A /* BookRamp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookRamp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = BookRamp/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = BookRamp/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = BookRamp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BookRamp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BookRamp/main.m; sourceTree = "<group>"; };
@@ -353,12 +354,16 @@
 		5DEC3539BF804D2A9FF43E5A /* libRNPaypalWrapper.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNPaypalWrapper.a; sourceTree = "<group>"; };
 		645875C2807647B7B19EEADB /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		657E45239601459F8EFCBD59 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		6D09401B252FDD88006181AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = BookRamp/Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6D0F255724AF642A004A0F87 /* Libraries */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Libraries; path = "../node_modules/react-native/Libraries"; sourceTree = "<group>"; };
 		6D28274D24B68B6F0061F59E /* BookRampTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookRampTests copy-Info.plist"; path = "/Users/linqun/Documents/bookramp/bookramp/ios/BookRampTests copy-Info.plist"; sourceTree = "<absolute>"; };
 		6D28275B24B68B790061F59E /* BookRampTests copy 2-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookRampTests copy 2-Info.plist"; path = "/Users/linqun/Documents/bookramp/bookramp/ios/BookRampTests copy 2-Info.plist"; sourceTree = "<absolute>"; };
 		6D28276924B68B810061F59E /* BookRampTests copy 3-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BookRampTests copy 3-Info.plist"; path = "/Users/linqun/Documents/bookramp/bookramp/ios/BookRampTests copy 3-Info.plist"; sourceTree = "<absolute>"; };
 		6D67D3E024BF6FF300B1A556 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		6D6833AC24BC5258002AB624 /* BookRamp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = BookRamp.entitlements; path = BookRamp/BookRamp.entitlements; sourceTree = "<group>"; };
+		6DD2A67E2536F3F80024C443 /* Target Support Files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Target Support Files"; path = "Pods/Target Support Files"; sourceTree = "<group>"; };
+		6DD2A6AD2536F40C0024C443 /* BookRamp 2020-10-09 09-38-09 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "BookRamp 2020-10-09 09-38-09"; sourceTree = "<group>"; };
+		7599B7E2A8724E2D89051CE7 /* RNPaypalWrapper.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNPaypalWrapper.xcodeproj; path = "../node_modules/react-native-paypal-wrapper/ios/RNPaypalWrapper.xcodeproj"; sourceTree = "<group>"; };
 		75DF7ADC348940C697B26F79 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		7BD4FEFE7B464C7A941B29C4 /* libRCTReactNativeMupdf.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTReactNativeMupdf.a; sourceTree = "<group>"; };
 		8CA70B6CFC994A438F853D21 /* Quicksand-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Medium.ttf"; path = "../src/assets/fonts/Quicksand/Quicksand-Medium.ttf"; sourceTree = "<group>"; };
@@ -383,7 +388,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36A1773EA72871F7BF326307 /* libPods-BookRamp.a in Frameworks */,
+				6D11FABB253793B800707340 /* libPods-BookRamp.a in Frameworks */,
+				6DD2A6472536D9FE0024C443 /* libRNPaypalWrapper.a in Frameworks */,
+				A29558B105155F533005D08B /* libPods-BookRamp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,13 +417,13 @@
 		13B07FAE1A68108700A75B9A /* BookRamp */ = {
 			isa = PBXGroup;
 			children = (
+				6D09401A252FDD88006181AE /* LaunchScreen.xib */,
 				6D6833AC24BC5258002AB624 /* BookRamp.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = BookRamp;
@@ -425,6 +432,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6DD2A6AD2536F40C0024C443 /* BookRamp 2020-10-09 09-38-09 */,
+				6DD2A67E2536F3F80024C443 /* Target Support Files */,
 				6D0F255724AF642A004A0F87 /* Libraries */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
@@ -481,7 +490,6 @@
 				6D67D45224BF6FF400B1A556 /* libRNDateTimePicker.a */,
 				6D67D45424BF6FF400B1A556 /* libRNGestureHandler.a */,
 				6D67D45624BF6FF400B1A556 /* libRNLocalize.a */,
-				6D67D45824BF6FF400B1A556 /* libRNPaypal.a */,
 				6D67D45A24BF6FF400B1A556 /* libRNPdftron.a */,
 				6D67D45C24BF6FF400B1A556 /* libRNReanimated.a */,
 				6D67D45E24BF6FF400B1A556 /* libRNScreens.a */,
@@ -491,10 +499,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		6DF29FA3253616C900D4F758 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6DF29FD5253616C900D4F758 /* libRNPaypalWrapper.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
 				6D67D3E024BF6FF300B1A556 /* Pods.xcodeproj */,
+				7599B7E2A8724E2D89051CE7 /* RNPaypalWrapper.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -604,6 +621,9 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					New,
+				);
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -629,6 +649,10 @@
 				{
 					ProductGroup = 6D67D3E124BF6FF300B1A556 /* Products */;
 					ProjectRef = 6D67D3E024BF6FF300B1A556 /* Pods.xcodeproj */;
+				},
+				{
+					ProductGroup = 6DF29FA3253616C900D4F758 /* Products */;
+					ProjectRef = 7599B7E2A8724E2D89051CE7 /* RNPaypalWrapper.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -884,13 +908,6 @@
 			remoteRef = 6D67D45524BF6FF400B1A556 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		6D67D45824BF6FF400B1A556 /* libRNPaypal.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNPaypal.a;
-			remoteRef = 6D67D45724BF6FF400B1A556 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		6D67D45A24BF6FF400B1A556 /* libRNPdftron.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -926,6 +943,13 @@
 			remoteRef = 6D67D46124BF6FF400B1A556 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		6DF29FD5253616C900D4F758 /* libRNPaypalWrapper.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNPaypalWrapper.a;
+			remoteRef = 6DF29FD4253616C900D4F758 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -937,10 +961,10 @@
 				6D67D3DB24BF5FEF00B1A556 /* Quicksand-Light.ttf in Resources */,
 				6D67D3DC24BF5FEF00B1A556 /* Quicksand-Medium.ttf in Resources */,
 				6D67D3DD24BF5FEF00B1A556 /* Quicksand-Regular.ttf in Resources */,
+				6D09401C252FDD89006181AE /* LaunchScreen.xib in Resources */,
 				6D67D3DE24BF5FEF00B1A556 /* Quicksand-SemiBold.ttf in Resources */,
 				6D67D3DF24BF5FEF00B1A556 /* Quicksand-VariableFont_wght.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1010,8 +1034,6 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-BookRamp/Pods-BookRamp-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-UI-Localization.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/Braintree/Braintree-Drop-In-Localization.bundle",
 				"${PODS_ROOT}/PDFNet/Tools-Localization",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
@@ -1032,8 +1054,6 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-UI-Localization.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Braintree-Drop-In-Localization.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Tools-Localization",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
@@ -1098,13 +1118,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
+		6D09401A252FDD88006181AE /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				13B07FB21A68108700A75B9A /* Base */,
+				6D09401B252FDD88006181AE /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = BookRamp;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1115,6 +1134,7 @@
 			baseConfigurationReference = 33BB9CF4C709E0FC0B171C6D /* Pods-BookRamp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = BookRamp/BookRamp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1127,6 +1147,7 @@
 					"$(SRCROOT)/..",
 					"$(SRCROOT)/..",
 					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
+					"$(SRCROOT)/../node_modules/react-native-paypal-wrapper/ios/**",
 				);
 				INFOPLIST_FILE = BookRamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1149,6 +1170,7 @@
 			baseConfigurationReference = 2BF6772E8F986BE2B4C8A0F9 /* Pods-BookRamp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CODE_SIGN_ENTITLEMENTS = BookRamp/BookRamp.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1160,11 +1182,13 @@
 					"$(SRCROOT)/..",
 					"$(SRCROOT)/..",
 					"$(SRCROOT)/../node_modules/react-native-paypal/ios",
+					"$(SRCROOT)/../node_modules/react-native-paypal-wrapper/ios/**",
 				);
 				INFOPLIST_FILE = BookRamp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MARKETING_VERSION = 4.0;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

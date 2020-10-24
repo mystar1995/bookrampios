@@ -20,7 +20,7 @@ export default StyleSheet.create({
   },
   headerContainer2:{
     width: '100%',
-    height: Platform.OS==='ios'?150: 130,
+    height:180,
   },
   headerContainer:{
     width: '100%',
@@ -29,6 +29,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     paddingTop: 10,
     paddingHorizontal: 20,
+  },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
   },
   menuIcon:{
     height: 35,

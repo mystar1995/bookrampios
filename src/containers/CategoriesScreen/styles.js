@@ -164,7 +164,7 @@ export default StyleSheet.create({
   },
   textBookStyle:{
     marginLeft: 10,
-    width:ScreenWidth/2
+    width:ScreenWidth/2.3
   },
   textBook:{
     fontSize: resonsiveText(15),

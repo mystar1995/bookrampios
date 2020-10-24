@@ -342,15 +342,21 @@ export function* switch_user()
 {
     yield takeEvery(actiontype.SWITCH_USER,function*(payload){
         let token = payload.token;
+        let role = payload.role;
+
+        if(!role)
+        {
+            role = "writer";
+        }
         console.log(token);
         try{
             let result = yield call(UserService.switchuser,token);
-            console.log(result.data);
+            console.log('resultdata',result.data);
             if(result.data.success)
             {
                 let userinfo = yield call(AsyncStorage.getItem,"userinfo");
                 userinfo = JSON.parse(userinfo);
-                userinfo.role = "writer";
+                userinfo.role = role;
                 AsyncStorage.setItem('userinfo',JSON.stringify(userinfo));
                 yield put({type:actiontype.AITH_SUCCESS,token:userinfo.token,role:userinfo.role});
                 payload.next();

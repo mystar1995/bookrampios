@@ -20,7 +20,7 @@ export default StyleSheet.create({
   },
   headerContainer2:{
     width: '100%',
-    height: Platform.OS==='ios'? 100: 80,
+    height: Platform.OS==='ios'? 140: 80,
   },
   headerContainer:{
     width: '100%',
@@ -33,6 +33,11 @@ export default StyleSheet.create({
   menuIcon:{
     height: 20,
     width: 20,
+  },
+  backIcon:{
+    height: 33,
+    width: 33,
+    padding: 3,
   },
   imageStyle:{
     width: '100%',

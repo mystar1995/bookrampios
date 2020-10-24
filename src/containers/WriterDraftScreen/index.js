@@ -44,6 +44,8 @@ class WriterDraftScreen extends  Component{
       isActiveTab,
       isModalOpen
     } = this.state
+
+    let {auth} = this.props;
     return (
       <View style={styles.screenContainer}>
         <StatusBar 

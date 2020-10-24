@@ -233,8 +233,8 @@ class HomeScreen extends  Component{
                     renderItem={({item,index}) =>{
                       const _that = this;
                     return(
-                      <TouchableOpacity style={styles.boxContainer} onPress={()=>this.selectbook(item.content_id,item.page)}>
-                        <View style={styles.boxStyle}>
+                      <TouchableOpacity style={styles.boxContainer2} onPress={()=>this.selectbook(item.content_id,item.page)}>
+                        <View style={styles.boxStyle2}>
                           <Image
                             style={styles.imageStyle2}
                             source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
@@ -336,8 +336,8 @@ class HomeScreen extends  Component{
                       renderItem={({item,index}) =>{
                         const _that = this;
                       return(
-                        <TouchableOpacity style={styles.boxContainer} onPress={()=>this.selectcontent(item.id)}>
-                          <View style={styles.boxStyle}>
+                        <TouchableOpacity style={styles.boxContainer2} onPress={()=>this.selectcontent(item.id)}>
+                          <View style={styles.boxStyle2}>
                             <Image
                               style={styles.imageStyle2}
                               source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}

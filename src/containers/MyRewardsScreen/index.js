@@ -93,13 +93,22 @@ class WriterRewardsScreen extends  Component{
     return sum;
   }
 
-  pay = () => {
+  pay = async() => {
     let {auth} = this.props;
     let amount = this.state.rewards * this.props.config.purchase_points / 100;
     this.setState({
       buyreward:false,
       rewards:0
     })
+
+    // let data = await requestOneTimePayment(config.paypal.sandbox,{
+    //   amount:amount,
+    //   currency:"USD",
+    //   userAction:'commit',
+    //   intent:'authorize'
+    // });
+
+    // console.log(data);
     Paypal.initialize(Paypal.SANDBOX,config.paypal.sandbox);
     Paypal.pay({
       price:amount + "",
@@ -191,7 +200,16 @@ class WriterRewardsScreen extends  Component{
                   </Text>
                 </View>
 
-                <View/>
+                <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.backIcon}
+                onPress={()=>{this.props.navigation.goBack()}}
+                >
+                <Image
+                style={styles.imageStyle}
+                source={require('../../assets/icons/backArrow.png')}
+                />
+                </TouchableOpacity>
               </View>
             </ImageBackground>
               {/* === main content === */}

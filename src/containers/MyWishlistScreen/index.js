@@ -33,6 +33,7 @@ import {connect} from 'react-redux';
 import config from '../../config/config';
 import * as actiontype from '../../constant/action-type';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome';
+import * as translator from '../../utils/translate';
 
 class MyWishlistScreen extends  Component{
   constructor(props){
@@ -57,10 +58,41 @@ class MyWishlistScreen extends  Component{
     dispatch({type:actiontype.SELECT_AUTHORINFO,token:auth.token,authorid:id,next:this.next})
   }
 
-  selectfreebooks = (contentid) => {
-    console.log(contentid);
+  is_freebook = (id,rewards) => {
+    const {mycontent,config} = this.props;
+    for(let item in mycontent)
+    {
+      if(mycontent[item].id == id)
+      {
+        return true;
+      }
+    }
+
+    console.log('rewardspoint',rewards);
+
+    if(Number(config.purchase_points) > rewards)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  selectfreebooks = (content) => {
+    console.log('rewardwhishlist',content);
+    //console.log(contentid);
     const {dispatch,auth} = this.props;
-    dispatch({type:actiontype.SELECT_FREE_BOOKS,token:auth.token,contentid:contentid,next:this.navigate});
+    if(this.is_freebook(content.id,content.authorrewards))
+    {
+      dispatch({type:actiontype.SELECT_BOOK,token:auth.token,id:content.content_id,next:()=>this.props.navigation.navigate('ReadBook')});
+    }
+    else
+    {
+      dispatch({type:actiontype.SELECT_FREE_BOOKS,token:auth.token,contentid:content.content_id,next:this.navigate});
+    }
+    
   }
 
   handlechange = (text) => {
@@ -329,7 +361,7 @@ class MyWishlistScreen extends  Component{
                           {/* //=== submit === */}
                           <TouchableOpacity
                             activeOpacity={0.8}
-                            onPress={()=>this.selectfreebooks(item.content_id)} 
+                            onPress={()=>this.selectfreebooks(item)} 
                             style={styles.submitButton}>
                             <Text style={styles.submitText}>
                               {translator.getlang('Want to Read',auth.user.language)}
@@ -346,7 +378,7 @@ class MyWishlistScreen extends  Component{
             {
               (!wishlist || wishlist.length == 0) && (
                 <View style={{paddingTop:10}}>
-                  <Text style={{...styles.headerText,textAlign:'center'}}>{translator.getlang("You haven¡¯t added any book to your wishist",auth.user.language)}</Text>
+                  <Text style={{...styles.headerText,textAlign:'center'}}>{translator.getlang("You havenï¿½ï¿½t added any book to your wishist",auth.user.language)}</Text>
                 </View>
               )
             }
@@ -359,7 +391,9 @@ class MyWishlistScreen extends  Component{
 
 const mapstatetoprops = (state) => ({
   auth:state.auth,
-  wishlist:state.wishlist
+  wishlist:state.wishlist,
+  mycontent:state.content.mycontent,
+  config:state.config
 })
 
 //===  make components available outside ===

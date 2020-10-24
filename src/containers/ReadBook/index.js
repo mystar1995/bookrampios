@@ -9,7 +9,8 @@ import {
     StatusBar,
     Dimensions,
     Share,
-    TouchableHighlight
+    TouchableHighlight,
+    Alert as AlertDialog
 } from 'react-native';
 
 import style from './styles';
@@ -79,13 +80,39 @@ class WordOfAbstarct extends Component {
         RNPdftron.enableJavaScript(true);
         
     }
-    shareContent = () => {
+    shareContent = async() => {
       let {read} = this.props;
-        Share.share({
-            message: read.book_content,
+      try
+      {
+        const result =  await Share.share({
+            message: "You can download this book '" + read.title + "'" + (read.content_file?' from ' +config.fileurl + read.content_file:'') ,
             url: read.content_file?config.fileurl + read.content_file:'',
             title: read.title
         })
+
+        console.log('result',result.action);
+
+        if(result.action == Share.sharedAction)
+        {
+            if(result.activityType)
+            {
+                AlertDialog.alert(result.activityType);
+            }
+            else
+            {
+                AlertDialog.alert('shared');
+            }
+        }
+        else if(result.action == Share.dismissedAction)
+        {
+            AlertDialog.alert('dismissed');
+        }
+      }
+      catch(e)
+      {
+          AlertDialog.alert(e.message);
+      }
+       
     }
     //=== rating ==
     handleRating = (rating) => {
@@ -180,7 +207,7 @@ class WordOfAbstarct extends Component {
 
     checkbookmark = () => {
         let {bookmark,read} = this.props;
-
+        console.log('bookmarkitem',bookmark);
         for(let item in bookmark)
         {
             if(bookmark[item].content_id == read.id && bookmark[item].page == this.state.currentpage)
@@ -362,12 +389,19 @@ class WordOfAbstarct extends Component {
                                     source={require('../../assets/icons/toggle.png')}
                                 />
                             </TouchableOpacity>
-                            <View>
-                                <Text style={styles.headerText}>
-                                {read.title}
+                            <Text style={styles.headerText}>
+                            {read.title}
                             </Text>
-                            </View>
-                            <View />
+                            <TouchableOpacity
+                            activeOpacity={0.8}
+                            style={styles.backIcon}
+                            onPress={()=>{this.props.navigation.goBack()}}
+                            >
+                            <Image
+                            style={styles.imageStyle}
+                            source={require('../../assets/icons/backArrow.png')}
+                            />
+                            </TouchableOpacity>
                         </View>
                     </ImageBackground>
                     {/* === main content === */}
@@ -445,31 +479,12 @@ class WordOfAbstarct extends Component {
                                     </TouchableHighlight>
                                 </View>
                                 {/* == feedback == */}
-                                <View style={styles.iconButtonContainer}>
-                                    <TouchableHighlight
-                                        activeOpacity={0.8}
-                                        onPress={() => this.getrating(read.id)}
-                                    >
-                                        <View style={styles.iconButtonContainer}>
-                                            <View style={styles.iconContainer}>
-                                                {/* <Image
-                                                    style={styles.imageStyle}
-                                                    source={require('../../assets/icons/toggle.png')}
-                                                /> */}
-                                                <FontAwesome name="wechat" style={styles.icon}></FontAwesome>
-                                            </View>
-
-                                            <Text style={styles.headingText2}>
-                                                {translator.getlang('Feedback',auth.user.language)}
-                                        </Text>
-                                        </View>
-                                    </TouchableHighlight>
-                                </View>
+                                
                                 {/* == rating/review == */}
                                 <View style={styles.iconButtonContainer}>
                                     <TouchableHighlight
                                         activeOpacity={0.8}
-                                        onPress={this.createfeedback}
+                                        onPress={() => this.getrating(read.id)}
                                     >
                                         <View style={styles.iconButtonContainer}>
                                             <View style={styles.iconContainer}>
@@ -616,9 +631,10 @@ class WordOfAbstarct extends Component {
                     </View>
                     {/* //=== modal === */}
                     <Modal
-                        visible={isModalOpen}
+                        visible={this.state.isModalOpen}
                         deviceHeight={ScreenHeight}
                         deviceWidth={ScreenWidth}
+                        animationType="fade"
                         onDismiss={()=>this.setState({isModalOpen:false})}
                         onBackdropPress={()=>this.setState({isModalOpen:false})}
                     >

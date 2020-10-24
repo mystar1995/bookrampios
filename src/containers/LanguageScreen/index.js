@@ -83,8 +83,17 @@ class LanguageScreen extends Component {
                     {translate.getlang("Select Language",auth.user.language)}
                   </Text>
                 </View>
+                <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.backIcon}
+                onPress={()=>{this.props.navigation.goBack()}}
+                >
+                <Image
+                style={styles.imageStyle}
+                source={require('../../assets/icons/backArrow.png')}
+                />
+                </TouchableOpacity>
                 
-                <View></View>
               </View>
               </ImageBackground>
               {/* === main content === */}

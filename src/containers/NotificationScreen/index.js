@@ -27,6 +27,7 @@ import SideBar from '../../components/SideBar';
 import WriterSideBar from '../../components/WriterSideBar';
 import config from '../../config/config';
 import * as actiontype from '../../constant/action-type';
+import * as translator from '../../utils/translate';
 //=== screen ===
 class NotificationScreen extends Component {
   constructor(props){
@@ -91,8 +92,16 @@ class NotificationScreen extends Component {
                   {translator.getlang('Notification',auth.user.language)}
                 </Text>
               </View>
-              
-              <View/>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                style={styles.backIcon}
+                onPress={()=>{this.props.navigation.goBack()}}
+                >
+                <Image
+                style={styles.imageStyle}
+                source={require('../../assets/icons/backArrow.png')}
+                />
+                </TouchableOpacity>
             </View>
             </ImageBackground>
             {/* === main content === */}
