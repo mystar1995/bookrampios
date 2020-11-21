@@ -10,6 +10,7 @@ import {
   StatusBar,
   TextInput,
   Platform,
+  AsyncStorage,
   Keyboard} from 'react-native';
 //=== style ==
 import styles from './styles';
@@ -36,7 +37,8 @@ class LoginScreen extends Component {
         show:false,
         title:"",
         message:""
-      }
+      },
+      acceptenable:false
     }
   }
 

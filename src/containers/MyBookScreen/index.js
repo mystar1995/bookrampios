@@ -157,8 +157,13 @@ class MyBookScreen extends  Component{
                 <TouchableOpacity
                   activeOpacity={0.8}
                   style={styles.plusIcon}
-                //onPress={()=>{}}
-                ></TouchableOpacity>
+                 onPress={()=>{this.props.navigation.goBack()}}
+                >
+                  <Image
+                    style={styles.imageStyle}
+                    source={require('../../assets/icons/backArrow.png')}
+                  ></Image>
+                  </TouchableOpacity>
               )
             }
           </View>
@@ -186,7 +191,7 @@ class MyBookScreen extends  Component{
                     style={styles.bookImageStyle1}>
                     <Image
                       source={{uri:item.cover_image?config.fileurl + item.cover_image:''}}
-                      style={styles.imageStyle}
+                      style={styles.imageStyle2}
                     />
                   </TouchableOpacity>
                   <View>

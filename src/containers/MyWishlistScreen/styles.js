@@ -112,12 +112,12 @@ export default StyleSheet.create({
     width: 18,
     marginRight:5
   },
-  contentView:{
+contentView:{
     width :'100%',
     paddingHorizontal: 20,
     marginTop: 20,
     zIndex:100
-  },
+},
   inputField:{
     width: '90%',
     height: '100%',

@@ -40,6 +40,7 @@ class SignupScreen extends Component {
     super(props)
     this.state={
       name: '',
+      ageGroup: '',
       dob: '',
       email: '',
       password: '',

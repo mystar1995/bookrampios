@@ -260,7 +260,7 @@ function WriterSideBar(props) {
             activeOpacity={0.8}>
               <View style={styles.listContainer}>
                 <Text style={styles.listText}>
-                  {translator.getlang('Contribute as Reader',user.language)}
+                  {translator.getlang('Continue as Reader',user.language)}
                 </Text>
               </View>
           </TouchableOpacity>

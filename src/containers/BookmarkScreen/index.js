@@ -62,7 +62,7 @@ class BookmarkScreen extends  Component{
 
   selectbook = (id) => {
     const {dispatch,auth} = this.props;
-    dispatch({type:actiontype.SELECT_FREE_BOOKS,contentid:id,token:auth.token});
+    dispatch({type:actiontype.SELECT_FREE_BOOKS,contentid:id,token:auth.token,next:()=>{}});
   }
 
   selectpurchasebook = (id) => {
@@ -303,7 +303,7 @@ class BookmarkScreen extends  Component{
               </View>
               {/* === read  === */}
               {
-               (bookinfo.author && Number(bookinfo.author.rewards) < Number(this.props.config.purchase_points)) && (
+                ((bookinfo.author && Number(bookinfo.author.rewards) < Number(this.props.config.purchase_points)) || !bookinfo.author) && (
                   <TouchableOpacity 
                     style={styles.readButton}
                     activeOpacity={0.8}
@@ -317,7 +317,7 @@ class BookmarkScreen extends  Component{
               }
 
               {
-                (bookinfo.author && Number(bookinfo.author.point) >= Number(this.props.config.purchase_points) && !this.checkpurchased(bookinfo.id)) && (
+                (bookinfo.author && Number(bookinfo.author.rewards) >= Number(this.props.config.purchase_points) && !this.checkpurchased(bookinfo.id)) && (
                   <TouchableOpacity 
                     style={styles.readButton}
                     activeOpacity={0.8}
@@ -331,7 +331,7 @@ class BookmarkScreen extends  Component{
               }
 
               {
-                (bookinfo.author && Number(bookinfo.author.point) >= Number(this.props.config.purchase_points) && this.checkpurchased(bookinfo.id)) && (
+                (bookinfo.author && Number(bookinfo.author.rewards) >= Number(this.props.config.purchase_points) && this.checkpurchased(bookinfo.id)) && (
                   <TouchableOpacity 
                     style={styles.readButton}
                     activeOpacity={0.8}

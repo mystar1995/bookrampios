@@ -343,7 +343,7 @@ class WriterRewardsScreen extends  Component{
                 </View>
               </View>
               {
-                this.getrewards(this.state.isActive == 1?'Earned':'Burned').slice(0,2).map((row,index)=>{
+                this.getrewards(this.state.isActive == 1?'Earned':'Burned').slice(0,10).map((row,index)=>{
                   return (
                     <View key={index} style={{...styles.rowContainer,marginTop: 10}}>
                     <View style={styles.rowContainer2}>

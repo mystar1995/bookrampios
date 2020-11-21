@@ -158,7 +158,7 @@ class MyWishlistScreen extends  Component{
               </TouchableOpacity>
               <View>
                 <Text style={styles.headerText}>
-                  {translator.getlang('My Wishes',auth.user.language)}
+                  {translator.getlang('My Wish List',auth.user.language)}
                 </Text>
               </View>
               

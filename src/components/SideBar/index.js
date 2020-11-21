@@ -241,7 +241,7 @@ function SideBar(props) {
           <TouchableOpacity style={styles.rowContainer} activeOpacity={0.8} onPress={switchuser}>
             <View style={styles.listContainer}>
               <Text style={styles.listText}>
-                {translate.getlang('Contribute as Writer',auth.user.language)}
+                {translate.getlang('Continue as Writer',auth.user.language)}
               </Text>
             </View>
           </TouchableOpacity>

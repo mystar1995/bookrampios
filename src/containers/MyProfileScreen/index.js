@@ -100,7 +100,7 @@ class MyProfileScreen extends  Component{
         username:this.state.username,
         email:this.state.email,
         gender:this.state.gender,
-        dob:Moment(new Date(this.state.dob)).format('YYYY-MM-DD'),
+        dob:this.state.dob?Moment(new Date(this.state.dob)).format('YYYY-MM-DD'):'1911-01-01',
         country:this.state.country,
         city:this.state.city,
         phone_number:this.state.areaCode + this.state.phone_number,
@@ -300,7 +300,6 @@ class MyProfileScreen extends  Component{
               source={require('../../assets/icons/backArrow.png')}
               />
               </TouchableOpacity>
-              <View/>
             </View>
             {/* //=== profile === */}
             <View style={styles.profileRow}>

@@ -148,7 +148,7 @@ class ReviewScreen extends Component {
                   <Text
                     numberOfLines={1}
                     style={styles.otherText}>
-                    {translator.getlang('Language',auth.user.language)}:  {content.language == 'en'?"English":'Arabic'}
+                    {translator.getlang('Language',auth.user.language)}:  {content.language == 'en'?translator.getlang("English",auth.user.language):translator.getlang("Arabic",auth.user.language)}
                   </Text>
                 </View>
               </View>

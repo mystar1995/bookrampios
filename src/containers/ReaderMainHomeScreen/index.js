@@ -49,7 +49,6 @@ class ReaderMainHomeScreen extends Component {
         category:props.route.params
       })
     }
-    
   }
 
   //=== tab Bar ===

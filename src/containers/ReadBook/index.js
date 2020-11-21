@@ -48,6 +48,8 @@ const ScreenHeight = Math.round(Dimensions.get('window').height);
 import * as translator from '../../utils/translate';
 
 class WordOfAbstarct extends Component {
+    interval = null;
+    initialized = true;
     constructor(props) {
         super(props);
         this.state = {
@@ -67,7 +69,7 @@ class WordOfAbstarct extends Component {
             currentpage:0,
             theme:'dark',
             update:false,
-            initialpage:1,
+            initialpage:0,
             updaterefresh:false,
             darkmode:false,
             alert:{
@@ -140,6 +142,14 @@ class WordOfAbstarct extends Component {
         //OpenFile.openDoc(config.fileurl + read.content_file);
     }
 
+    componentWillUnmount()
+    {
+        if(this.interval)
+        {
+            clearInterval(this.interval);
+        }
+    }
+
     componentWillReceiveProps()
     {
         let {read} = this.props;
@@ -179,9 +189,10 @@ class WordOfAbstarct extends Component {
         console.log('bookmark',read);
         if(read.page)
         {
-            this.setState({
-                initialpage:Number(read.page)
-            })
+            this.initialized = false;
+            // this.setState({
+            //     initialpage:Number(read.page)
+            // })
         }
 
         if(read.id && !read.content_file)
@@ -263,14 +274,15 @@ class WordOfAbstarct extends Component {
         else
         {
             return this.state.currentpage / this.state.totalpage;
+
         }
     }
 
     getrating = (id) => {
-       const {dispatch,auth} = this.props;
+        const {dispatch,auth} = this.props;
         dispatch({type:actiontype.INIT_RATING,token:auth.token,contentid:id,next:this.next})
     }
-
+    
     createfeedback = () => {
         let {rating,auth} = this.props;
         let enable = true;
@@ -319,8 +331,8 @@ class WordOfAbstarct extends Component {
             dispatch({type:actiontype.EARN_REWARDS,token:auth.token,contentid:read.id,page:number});
         }
     }
-
-    componentDidUpdate()
+    
+     componentDidUpdate()
     {
         if(this.state.updatetheme)
         {
@@ -517,7 +529,7 @@ class WordOfAbstarct extends Component {
                                             </View>
 
                                             <Text style={styles.headingText2}>
-                                                share
+                                                {translator.getlang('share',auth.user.language)}
                                             </Text>
                                         </View>
                                     </TouchableHighlight>
@@ -560,26 +572,51 @@ class WordOfAbstarct extends Component {
                                         {
                                             this.state.update && (
                                                 <DocumentView
+                                                    pageNumber={this.state.initialpage}
                                                     ref={(document)=>this.document = document} 
                                                     showLeadingNavButton={true} 
                                                     document={config.fileurl + read.content_file} 
                                                     style={{width:'100%',height:500}}
                                                     onDocumentLoaded={() => {
-                                                        this.document.getPageCount().then((pageCount) => {
-                                                        this.setState({totalpage:pageCount})
-                                                        if(pageCount == 1)
-                                                        {
-                                                            this.handlepage(pageCount);
-                                                        }
-                                                    });
-                                                    this.document.setToolMode(Config.Tools.annotationCreateEllipse);
-                                                    this.setState({
-                                                        darkmode:!this.state.darkmode
-                                                    })
-                                                }}
-                                                topToolbarEnabled={false}
-                                                bottomToolbarEnabled={false}
-                                                readOnly={true}
+                                                        
+                                                        this.interval = setInterval(()=>{
+                                                            if(!this.document || this.document == null)
+                                                            {
+                                                                clearInterval(this.interval);
+                                                                return;
+                                                            }
+                                                            
+                                                            let self = this;
+                                                            this.document.getPageCount().then((pageCount) => {
+                                                                self.setState({totalpage:pageCount})
+
+                                                                if(!self.initialized && self.props.read.page)
+                                                                {
+                                                                    if(pageCount >= Number(self.props.read.page))
+                                                                    {
+                                                                       this.setState({
+                                                                           initialpage:Number(self.props.read.page)
+                                                                       })
+                                                                        self.initialized = true;
+                                                                    }
+                                                                }
+                                                                if(pageCount == 1)
+                                                                {
+                                                                    this.handlepage(pageCount);
+                                                                }
+                                                            });
+                                                        },1000);
+                                                        
+                                                        
+                                                        this.document.setToolMode(Config.Tools.annotationCreateEllipse);
+                                                        this.setState({
+                                                            darkmode:!this.state.darkmode
+                                                        })
+                                                    }}
+                                                
+                                                    topToolbarEnabled={false}
+                                                    bottomToolbarEnabled={false}
+                                                    readOnly={true}
                                                     onPageChanged={({previousPageNumber, pageNumber})=>{
                                                         if(pageNumber)
                                                         {

@@ -406,7 +406,7 @@ class SearchScreen extends  Component{
                           style={styles.bookImageStyle1}>
                         <Image
                           source={item.cover_image?{uri:config.fileurl + item.cover_image}:require('../../assets/placeHolder/default.png')}
-                          style={styles.imageStyle}
+                          style={styles.imageStyle2}
                         />
                       </TouchableOpacity>
                       <View>

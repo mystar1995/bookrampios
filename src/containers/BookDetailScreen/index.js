@@ -59,7 +59,7 @@ class BookDetailScreen extends  Component{
 
   selectpayment = () => {
     const {dispatch,auth,bookinfo} = this.props;
-    if(this.getcontentpurchased(bookinfo.id))
+    if(this.getcontentpurchased(bookinfo.id) || this.is_free())
     {
       dispatch({type:actiontype.SELECT_BOOK,id:bookinfo.id,token:auth.token,next:this.readbook});
     }
@@ -93,13 +93,22 @@ class BookDetailScreen extends  Component{
       }
     }
 
-    if(bookinfo.authorrewards < config.purchase_points)
+
+    return false;
+  }
+  
+  is_free = () => {
+    const {bookinfo,config} = this.props;
+    console.log(bookinfo.authorrewards);
+    console.log(config.purchase_points);
+    if(!bookinfo.authorrewards || Number(bookinfo.authorrewards) < Number(config.purchase_points))
     {
       return true;
     }
 
     return false;
   }
+
 addtowishlist = () => {
     const {dispatch,auth,bookinfo} = this.props;
     dispatch({type:actiontype.ADD_WISHLIST,contentid:bookinfo.id,token:auth.token});
@@ -211,8 +220,8 @@ addtowishlist = () => {
                   {/* === book image  === */}
                   <View style={styles.bookImageStyle}>
                     <Image
-                      style={styles.imageStyle}
-                      source={{uri:config.fileurl + bookinfo.cover_image}}
+                      style={styles.imageStyle2}
+                      source={bookinfo.cover_image?{uri:config.fileurl + bookinfo.cover_image}:require('../../assets/placeHolder/default.png')}
                     />
                   </View>
                   {/* === Rating  === */}
@@ -363,7 +372,7 @@ addtowishlist = () => {
                   onPress={this.selectpayment} 
                   style={styles.cartButton}>
                   <Text style={styles.cartText}>
-                    {this.getcontentpurchased(bookinfo.id)?'Read':"Add to Cart"}
+                    {this.getcontentpurchased(bookinfo.id)?'Read':this.is_free()?'Read For Free':"Add to Cart"}
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity

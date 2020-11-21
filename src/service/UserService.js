@@ -51,8 +51,9 @@ export async function updateuserprofile(profile,token)
 
 export async function getfans(token)
 {
-    return await axios.get(config.API_URL + "/author/fans/",{headers:{"Authorization":"token " + token}});
+    return await axios.get(config.API_URL + "/author/fans/",{headers:{"Authorization":token}});
 }
+
 
 export async function getauthorinfo(token,authorid)
 {
